@@ -1,0 +1,11 @@
+
+<ul class="list-group" *ngIf="listaCryptos.length>0">
+    <li class="list-group-item active">Los Cryptos disponibles son:</li>
+    <li class="list-group-item" *ngFor="let crypto of listaCryptos">
+        {{crypto}}
+    </li>
+</ul>
+
+<div class="text-center" *ngIf="listaCryptos.length==0">
+    <h3>Cargando lista de Cryptos...</h3>
+</div>

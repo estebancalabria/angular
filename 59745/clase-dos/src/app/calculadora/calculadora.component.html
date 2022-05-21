@@ -1,0 +1,27 @@
+<div>
+    <input #miValorUno type="number" class="form-control" [value]="valor1" (change)="setValor1($event)" />
+    {{miValorUno}}
+    <Button (click)="miValorUno.valueAsNumber = 10">Poner en 10</Button>
+</div>
+<div>
+    <input type="number" class="form-control" [value]="valor2" (change)="setValor2($event)" />
+</div>
+<div>
+    <select (change)="setOperacion($event)">
+        <option value="">Elija una operacion...</option>
+        <option value="suma">Suma</option>
+        <option value="resta">Resta</option>
+        <option value="mult">Multiplicacion</option>
+        <option value="div">Division</option>
+    </select>
+</div>
+
+<div>
+   <span [ngSwitch]="operacion">
+      <span *ngSwitchCase="'suma'">{{valor1+valor2}}</span>
+      <span *ngSwitchCase="'resta'">{{valor1-valor2}}</span>
+      <span *ngSwitchCase="'mult'">{{valor1*valor2}}</span>
+      <span *ngSwitchCase="'div'">{{valor1/valor2}}</span>
+      <span *ngSwitchDefault>Elija una operacion</span>
+   </span> 
+</div>

@@ -1,0 +1,25 @@
+<div class="w-50 m-auto">
+    <ul class="list-group">
+        <li class="list-group-item active">Mi Lista de Tareas</li>
+        <li *ngFor="let tarea of tareas" class="list-group-item">
+            {{tarea.nombre}}
+
+            <button class="btn btn-danger float-end" (click)="eliminarTarea(tarea.id)">
+                -
+            </button>
+        </li>
+        <li  class="list-group-item">
+            <div class="input-group">
+                <input type="text" class="form-control" 
+                       placeholder="Ingrese nueva tarea..." 
+                       [value]="nombreTareaNueva"
+                       (change)="inputChange($event)"/>
+                <div class="input-group-append">
+                    <button class="btn btn-success" (click)="agregarTarea($event)">
+                        +
+                    </button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

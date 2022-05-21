@@ -1,0 +1,10 @@
+<div>
+    <input type="text" class="form-control" 
+        placeholder="Ingrese su nombre"
+        (change)="cambiarNombre($event)" />
+
+    <button class="btn btn-primary" (click)="clickBoton()">Saludar</button>
+    <div>
+        El Saludo es : {{saludo}}
+    </div>
+</div>

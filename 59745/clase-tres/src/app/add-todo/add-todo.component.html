@@ -1,0 +1,12 @@
+<div class="input-group w-50 m-auto">
+    <input type="text" class="form-control" 
+           placeholder="Ingrese nueva tarea..."
+           [value]="nombre"
+           (change)="inputChange($event)"  />
+    <div class="input-group-append">
+        <button class="btn btn-success" (click)="notificarAgregarTarea()">
+            +
+        </button>
+    </div>
+</div>
+
