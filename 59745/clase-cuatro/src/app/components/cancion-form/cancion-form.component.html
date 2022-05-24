@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()">
+    <legend>Formlario de Canciones</legend>
+    <div class="form-group">
+        <label for="txtArtista">Artista:</label>
+        <input class="form-control" type="text" id="txtArtista" name="artista" 
+            [(ngModel)]="modelo.artista"  required minlength="2"
+            #txtArtista="ngModel"/>
+        <div class="text text-danger text-end" *ngIf="txtArtista.invalid">
+            El artista no puede quedar vacio
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtNombre">Nombre:</label>
+        <input class="form-control" type="text" id="txtNombre" name="nombre" 
+            [(ngModel)]="modelo.nombre" required minlength="2"
+            #txtNombre="ngModel"/>
+        <div class="txt text-danger text-end">
+            {{txtNombre.errors | json}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtDuracionSegundos">Segundos duración:</label>
+        <input class="form-control" type="number" id="txtDuracionSegundos" name="duracionSegundos" 
+            [(ngModel)]="modelo.duracionSegundos" required min="15" max="10000"
+            #txtDuracionSegundos="ngModel"/>
+        <div class="txt text-danger text-end" [hidden]="txtDuracionSegundos.valid">
+            {{txtDuracionSegundos.errors | json }}
+        </div>
+    </div>
+    <div class="form-group">
+         <label for="txtFechaLanzamiento">Fecha De Lanzamiento:</label>
+         <input class="form-control" type="date" id="txtFechaLanzamiento" name="fechaLanzamiento"
+            [ngModel]="modelo.fechaLanzamiento | date : 'yyyy-MM-dd' "
+            (ngModelChange)="modelo.fechaLanzamiento = $event" required nottoday/>
+    </div>
+    <button class="btn btn-success w-100 mt-2">
+        Enviar
+    </button>
+</form>
+
+<div>Troubleshooting</div>
+<div>
+Modelo : {{this.modelo | json}}
+</div> 
+
