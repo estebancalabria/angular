@@ -31,7 +31,12 @@
          <label for="txtFechaLanzamiento">Fecha De Lanzamiento:</label>
          <input class="form-control" type="date" id="txtFechaLanzamiento" name="fechaLanzamiento"
             [ngModel]="modelo.fechaLanzamiento | date : 'yyyy-MM-dd' "
-            (ngModelChange)="modelo.fechaLanzamiento = $event" required nottoday/>
+            (ngModelChange)="modelo.fechaLanzamiento = $event" required 
+            nottoday
+            #txtFechaLanzamiento="ngModel"/>
+        <div>
+            {{txtFechaLanzamiento.valid}}
+        </div>
     </div>
     <button class="btn btn-success w-100 mt-2">
         Enviar

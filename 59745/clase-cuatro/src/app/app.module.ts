@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CancionFormComponent } from './components/cancion-form/cancion-form.component';
-import { NotTodayValidatorDirective } from './utils/not-today-validator-directive';
+//import { NotTodayValidatorDirective } from './utils/not-today-validator-directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { NotTodayValidatorDirective } from './utils/not-today-validator-directiv
     BrowserModule,
     FormsModule
   ],
-  providers: [NotTodayValidatorDirective],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

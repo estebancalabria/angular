@@ -19,6 +19,10 @@ export class CancionFormComponent implements OnInit {
     //pepe.errors
   }
 
+  see(m:NgModel){
+    //alert(m.);
+  }
+
   onSubmit(){
     alert(JSON.stringify(this.modelo));
   }
