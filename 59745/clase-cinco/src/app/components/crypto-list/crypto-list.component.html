@@ -1,0 +1,24 @@
+<h3 class="text-center display-3">Lista de Criptos</h3>
+
+<table class="table">
+   <thead>
+     <tr>
+        <th>Imagen</th>
+        <th>Simbolo</th>
+        <th>Nombre</th>
+        <th class="text-end">Precio</th>
+     </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let crypto of cryptos">
+        <td>
+            <img style="width: 40px; height: 40px;" 
+                 [src]="crypto.image" 
+                 [alt]="crypto.name"/>
+        </td>
+        <td>{{crypto.symbol}}</td>
+        <td>{{crypto.name}}</td>
+        <td class="text-end pe-5">u$d {{crypto.current_price}}</td>
+      </tr>
+   </tbody>
+</table>
