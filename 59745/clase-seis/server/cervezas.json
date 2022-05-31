@@ -1,0 +1,52 @@
+{
+  "cervezas": [
+    {
+      "id": 1,
+      "marca": "Imperial IPA",
+      "tipo": "IPA",
+      "graduacion": 8
+    },
+    {
+      "id": 2,
+      "marca": "Barbaroja",
+      "tipo": "Lager",
+      "graduacion": 5
+    },
+    {
+      "id": 3,
+      "marca": "Patagonia",
+      "tipo": "Negra",
+      "graduacion": 7
+    },
+    {
+      "id": 4,
+      "marca": "Miller",
+      "tipo": "Rubia",
+      "graduacion": 4
+    },
+    {
+      "id": 5,
+      "marca": "Wolf",
+      "tipo": "IPA",
+      "graduacion": "12"
+    },
+    {
+      "id": 6,
+      "marca": "GOT",
+      "tipo": "IPA",
+      "graduacion": "32"
+    },
+    {
+      "id": 7,
+      "marca": "",
+      "tipo": "",
+      "graduacion": ""
+    },
+    {
+      "id": 8,
+      "marca": "",
+      "tipo": "",
+      "graduacion": ""
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+    <form [formGroup]="form" (submit)="submitForm()">
+        <legend class="alert alert-info">Formulario de Cerveza</legend>
+        <div class="form-group">
+            <label for="marca">Marca</label>
+            <input class="form-control" type="text" formControlName="marca" />
+            <div class="text text-danger text-end" [hidden]="form.get('marca')?.valid" >
+                La marca no puede quedar vacia
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <input class="form-control" type="text" formControlName="tipo" />
+        </div>
+        <div class="form-group">
+            <label for="tipo">Graduacion</label>
+            <input class="form-control" type="text" formControlName="graduacion" />
+        </div>
+        <div class="form-group mt-2">
+            <button type="submit"class="btn btn-primary w-100" [disabled]="!form.valid">
+                Enviar Datos
+            </button>
+        </div>  
+    </form>
+    <div>
+        <div>Diagnostico</div>
+        <div>{{form.value | json}}</div>
+        <div>Valido: {{form.valid}}</div>
+        <button (click)="modificarDatos()">Modificar Datos Formulario desde El Codigo</button>   
+    </div>
+</div>
