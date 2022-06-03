@@ -1,0 +1,25 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Año</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let juego of juegos">
+            <td><img [src]="juego.imagen" [alt]="juego.nombre" /></td>
+            <td>{{juego.nombre}}</td>
+            <td>{{juego.genero}}</td>
+            <td class="text-end">{{juego.year}}</td>
+            <td class="text-end">
+                <a class="btn btn-primary" [routerLink]="'/juego/'+juego.id">
+                    Editar
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+

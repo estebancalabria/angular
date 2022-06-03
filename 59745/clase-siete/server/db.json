@@ -1,0 +1,32 @@
+{
+  "juegos": [
+    {
+      "id": 1,
+      "nombre": "Monsds",
+      "genero": "Shooter",
+      "year": 1998,
+      "imagen": "https://picsum.photos/100?1"
+    },
+    {
+      "id": 2,
+      "nombre": "Age of Empires",
+      "imagen": "https://picsum.photos/100?2",
+      "genero": "Estrategia",
+      "year": 1997
+    },
+    {
+      "id": 3,
+      "nombre": "Call of Duty",
+      "imagen": "https://picsum.photos/100?3",
+      "genero": "Shooter",
+      "year": 2005
+    },
+    {
+      "id": 4,
+      "nombre": "League of Legends",
+      "imagen": "https://picsum.photos/100?4",
+      "genero": "Moba",
+      "year": 209
+    }
+  ]
+}
