@@ -1,0 +1,23 @@
+<div class="alert alert-info">
+   {{ titulo }}
+</div>
+<div [style]="'background-color:'+rojo">
+  {{ titulo | uppercase}}
+</div>
+<div>
+  {{ titulo | lowercase}}
+</div>
+<div [style.backgroundColor]="rojo">{{ titulo | titlecase}}</div>
+<div>{{ titulo | slice:0:2}}</div>
+<hr />
+<div>{{fecha}}</div>
+<div>{{fecha|date}}</div>
+<div>{{fecha|date:"yyyy/MM/dd"}}</div>
+<div>{{fecha|date:"mediumTime"}}</div>
+<hr />
+<div>{{numero|number:"0.4"}}</div>
+<div>{{numero| currency:"$"}}</div>
+<div>{{decimal | percent}}</div>
+<hr />
+<a [href]="urlGoogle">Ir a Google</a>
+<button (click)="clickBoton()">Haceme Click</button>

@@ -1,0 +1,22 @@
+<h1 class="alert alert-info">Pretendientes de Shakira</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let persona of personas">
+            <td>{{persona.nombre}}</td>
+            <td>{{persona.apellido}}</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary w-100" (click)="navigateToAdd()">
+    Agregar
+</button>
