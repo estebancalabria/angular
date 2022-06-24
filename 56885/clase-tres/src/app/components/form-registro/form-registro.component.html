@@ -1,0 +1,36 @@
+<form #miForm="ngForm" (ngSubmit)="procesarForm()">
+    <legend>Formulario de Registro</legend>
+    <div class="form-group">
+        <label for="txtNombre">Nombre:</label>
+        <input type="text" class="form-control" id="txtNombre" name="nombre" 
+            [(ngModel)]="modelo.nombre" #txtNombre="ngModel" required/> 
+        <div class="text text-danger text-end" [hidden]="txtNombre.valid">
+            Debe Ingresar el nombre {{txtNombre.errors | json}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtDocumento">Documento:</label>
+        <input type="number" class="form-control" id="txtDocumento" 
+        name="documento" #txtDocumento="ngModel"
+        [(ngModel)]="modelo.documento" required min="1000000" max="999999999"/>
+        <div class="text text-danger text-end">
+            Documento Incorrecto {{txtDocumento.errors | json}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="txtFechaNacimiento">Fecha De Nacimiento:</label>
+        <input type="date" class="form-control" id="txtFechaNacimiento" name="fechaDeNacimento" 
+        [ngModel]="modelo.fechaDeNacimiento | date : 'yyyy-MM-dd'" 
+        (ngModelChange)="modelo.fechaDeNacimiento = $event"
+        required/>
+    </div>
+    <div class="form-group mt-2">
+        <button class="btn btn-primary w-100" [disabled]="!miForm.valid">Enviar</button>
+    </div>
+</form>
+<div>
+    <div>Degug Info</div>
+    <div>Formulario : {{miForm.constructor.name}} </div>
+    <div>Formulario Valido : {{miForm.valid}}</div>
+    <div>Modelo : {{ modelo | json }}</div>
+</div>
