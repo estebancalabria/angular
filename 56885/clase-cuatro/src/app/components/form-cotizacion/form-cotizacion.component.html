@@ -1,0 +1,42 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label>Id</label>
+    <input class="form-control" type="number" formControlName="id" />
+  </div>
+  <div class="form-group">
+    <label>Moneda</label>
+    <input class="form-control" type="text" formControlName="moneda" />
+  </div>
+  <div class="form-group">
+    <label>Fecha</label>
+    <input class="form-control" type="date" formControlName="fecha" />
+  </div>
+  <div class="form-group">
+    <label>Simbolo</label>
+    <input class="form-control" type="text" formControlName="simbolo" />
+    <div class="text text-danger text-end" [hidden]="form.get('simbolo')?.valid">
+        {{form.get('simbolo')?.errors | json}}
+        <div [hidden]="!form.get('simbolo')?.errors?.['required']">
+            Debe ingresar el simbolo de la cotizacion
+        </div>
+        <div [hidden]="!form.get('simbolo')?.errors?.['maxlength']">
+            El campo Ingresado es demasiado largo
+        </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Cotizacion</label>
+    <input class="form-control" type="number" formControlName="cotizacion"/>
+    
+</div>
+  <div class="mt-2">
+    <button  class="btn btn-primary w-100">
+        Hacer algo Con el Form
+    </button>
+  </div>
+</form>
+<div>
+    <h3>Debug info</h3>
+    <div>Formulario Valido {{form.valid}}</div>
+    <div>Campo Cotizacion Valido {{ form.get("cotizacion")?.valid }}</div>
+</div>
