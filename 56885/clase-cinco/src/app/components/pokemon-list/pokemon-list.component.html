@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Peso</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemones">
+            <td>
+                <img [src]="pokemon.imagen" [alt]="pokemon.nombre" />
+            </td>
+            <td>{{pokemon.nombre}}</td>
+            <td>{{pokemon.tipo}}</td>
+            <td>{{pokemon.peso}}</td>
+        </tr>
+    </tbody>
+</table>
