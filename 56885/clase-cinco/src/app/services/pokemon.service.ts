@@ -32,7 +32,8 @@ export class PokemonService extends PokemonServiceInterface {
                 console.log(results);
 
                 obs.next(results);
-            })
+                obs.complete();
+            });
             
             
         })

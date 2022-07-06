@@ -1,0 +1,41 @@
+{
+    "inventario" : [
+        {
+            "id":1,
+            "producto":"Ropero",
+            "imagen":"https://picsum.photos/300?1",
+            "cantidad":12
+        },
+        {
+            "id":2,
+            "producto":"Mouse",
+            "imagen":"https://picsum.photos/300?2",
+            "cantidad":12
+        },
+        {
+            "id":3,
+            "producto":"Audifono",
+            "imagen":"https://picsum.photos/300?3",
+            "cantidad":120
+        },
+        {
+            "id":4,
+            "producto":"Lechon",
+            "imagen":"https://picsum.photos/300?4",
+            "cantidad":1
+        },
+        {
+            "id":5,
+            "producto":"Cafe",
+            "imagen":"https://picsum.photos/300?5",
+            "cantidad":45
+        }
+        ,
+        {
+            "id":6,
+            "producto":"Yerba Mate",
+            "imagen":"https://picsum.photos/300?6",
+            "cantidad":45
+        }
+    ]
+}
