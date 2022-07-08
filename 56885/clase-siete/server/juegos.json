@@ -1,0 +1,29 @@
+{
+    "juegos" : [
+        {
+            "id" : 1,
+            "nombre" : "The Witcher 3",
+            "genero" : "RPG"
+        },
+        {
+            "id" : 2,
+            "nombre" : "Apex",
+            "genero" : "Battle Royale"
+        },
+        {
+            "id" : 3,
+            "nombre" : "Fornite",
+            "genero" : "Battle Royale"
+        },
+        {
+            "id" : 4,
+            "nombre" : "Fornite",
+            "genero" : "Battle Royale"
+        },
+        {
+            "id" : 5,
+            "nombre" : "Mario",
+            "genero" : "Plataformas"
+        }  
+    ]
+}

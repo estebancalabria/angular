@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let juego of juegos">
+            <td>{{juego.nombre}}</td>
+            <td>{{juego.genero}}</td>
+            <td>
+                <!--Lo puedo hacer con un a.routerlink tambien -->
+                <button class="btn btn-primary" 
+                        (click)="onEditar(juego.id)">
+                   Editar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
