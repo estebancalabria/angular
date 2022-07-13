@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Protagonista</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pelicula of peliculas">
+            <td>{{pelicula.nombre}}</td>
+            <td>{{pelicula.protagonista}}</td>
+            <td>
+                <button class="btn btn-danger float-end" (click)="eliminar(pelicula.id)">
+                    Eliminar
+                </button>
+
+                <a class="btn btn-success float-end me-2" 
+                   [routerLink]="'pelicula/editar/' + pelicula.id">
+                   Editar
+               </a> 
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-success w-100 mt-2" routerLink="pelicula/agregar">
+    Agregar Nueva
+</a>

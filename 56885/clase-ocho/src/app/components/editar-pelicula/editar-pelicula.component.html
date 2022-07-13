@@ -1,0 +1,11 @@
+<form [formGroup]="form" (submit)="submitForm()">
+    <input class="form-control" type="number" formControlName="id" hidden />
+    Nombre:
+    <input class="form-control" type="text" formControlName="nombre" />
+    Protagonista
+    <input class="form-control" type="text" formControlName="protagonista" />
+
+    <button class="btn btn-success w-100 mt-2">
+        Editar
+    </button>
+</form>

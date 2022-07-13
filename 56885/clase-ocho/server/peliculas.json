@@ -1,0 +1,29 @@
+{
+  "peliculas": [
+    {
+      "id": 1,
+      "nombre": "John Wick",
+      "protagonista": "Keanu"
+    },
+    {
+      "id": 2,
+      "nombre": "Top Gun",
+      "protagonista": "Tom Crouse"
+    },
+    {
+      "id": 3,
+      "nombre": "El Padrino",
+      "protagonista": "Al Pacino"
+    },
+    {
+      "id": 4,
+      "nombre": "Rapido y Furioso",
+      "protagonista": "Vin Disel"
+    },
+    {
+      "id": 5,
+      "nombre": "Scarface",
+      "protagonista": "Alpa"
+    }
+  ]
+}
