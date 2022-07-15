@@ -1,0 +1,23 @@
+<header class="alert alert-primary text-center">
+    <h1 [ngClass]="titleClass">
+      {{ titulo | uppercase }}
+    </h1>
+    <h2>
+      <!--{{ subtitulo | lowercase }} si fuera en minuscula-->    
+      {{ subtitulo | titlecase }}
+    </h2>
+    <!--<h4 class="text-center" [style]=" 'color:' + descriptionColor">-->
+    <h4 class="text-center" [style.color]="descriptionColor">
+      {{descripcion | slice:0:longDescripcion}}
+    </h4>
+    <div class="text-end">
+      Fecha De Hoy : {{ fechaDeHoy | date : "yyyy/MM/dd" }}
+    </div>
+    <div class="text-end">
+      Saldo Actual : {{ dinero | currency : "Btc "}}
+    </div>
+    <div class="text-end">
+      <button (click)="saludar($event)" class="btn btn-success">Saludar</button>
+    </div>
+  </header>
+  

@@ -1,0 +1,14 @@
+
+<app-cabecera></app-cabecera>
+<main class="container">
+  <ul class="list-group w-50 mx-auto">
+    <li class="list-group-item active">Lista de Alumnos</li>
+    <li class="list-group-item" *ngIf="listaAlumnos.length === 0">No hay Inscritos</li>
+    <li class="list-group-item" *ngFor="let alumno of listaAlumnos">{{ alumno }}</li>
+    <li class="list-group-item text-end" *ngIf="listaAlumnos.length > 0">
+      <button class="btn btn-danger" (click)="finalizar()">
+        Finalizar Clase
+      </button>
+    </li>
+  </ul>
+</main>
