@@ -1,0 +1,42 @@
+<!-- <elemento #var> var es una teplate variable
+    es lo mismo que hacer
+    <elemento id="elem">
+    var elem = document.getElementById("elem");-->
+<form #formulario="ngForm">
+    Nombre:
+    <!--<input class="form-control" type="text"  name="usuario" 
+        [value]="modelo.usuario" (onKeyDown)="actualizarUsuario()" />-->
+    <input class="form-control" type="text"  
+        name="usuario" [(ngModel)]="modelo.usuario" required />
+    
+    Password:
+    <input #txtPassword="ngModel" class="form-control" type="password"  
+        name="password" [(ngModel)]="modelo.password" required minlength="8"/>
+    <div class="text text-danger text-end" *ngIf="txtPassword.errors?.['required']">
+        El password es obligatorio
+    </div>
+    
+    Fecha De Nacimiento:
+    <input class="form-control" type="date" required
+        name="fechaDeNacimiento" [ngModel]="modelo.fechaDeNacimiento |  date : 'yyyy-MM-dd'"
+        (ngModelChange)="modelo.fechaDeNacimiento = $event" />
+    
+    Documento
+    <input #txtDocumento="ngModel" class="form-control" type="number" required
+        min="1000000" max="70000000"
+        name="documento" [(ngModel)]="modelo.documento" />
+
+    <div class="text text-danger text-end" [hidden]="txtDocumento.valid">
+        {{txtDocumento.errors | json }}
+    </div>
+    
+    <button class="btn btn-success w-100 mt-2">
+        Enviar
+    </button>
+</form>
+
+<h3>Datos de Debug</h3>
+<div>Formulario : {{ formulario.constructor.name }}</div> 
+<div>Formulario Valido : {{ formulario.valid }}</div>
+<div>Valor Formulario : {{ formulario.value | json }}</div>
+<div>Valor Modelo {{ modelo | json }}</div>
