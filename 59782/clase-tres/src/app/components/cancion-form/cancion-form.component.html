@@ -1,0 +1,27 @@
+<form [formGroup]="form">
+    <legend>Formulario de Canciones</legend>
+
+    <input class="form-control" type="number" hidden formControlName="id" />
+
+    Nombre:
+    <input class="form-control" type="text" formControlName="nombre" />
+    
+    Duracion (s):
+    <input class="form-control" type="number" formControlName="segundosDuracion" />
+    <div *ngIf="form.get('segundosDuracion')?.errors?.['required']" class="text text-danger text-end">
+        El campo es requerido 
+    </div>
+    <div *ngIf="form.get('segundosDuracion')?.errors?.['min']" class="text text-danger text-end">
+        El valor es muy chico
+    </div>
+    <div *ngIf="form.get('segundosDuracion')?.errors?.['max']" class="text text-danger text-end">
+        El valor es muy largo
+    </div>
+
+    Fecha Release:
+    <input class="form-control" type="date" formControlName="fechaRelease" />
+</form>
+
+<button class="btn btn-primary w-100" (click)="levantarCancionAlAzar()">
+    Recuperar una cancion al azar
+</button>
