@@ -1,0 +1,13 @@
+<div class="row  g-2">
+    <div *ngFor="let character of characters" class="col-3">
+       <div class="card h-100 w-100">
+          <img class="card-img-top" style="height: 250px" [src]="character.image" [alt]="character.name" />
+          <div class="card-body">
+             <h5 class="card-title">{{character.name}}</h5>
+             <p class="card-text">
+                {{character.gender}} {{character.species}} de {{character.origin.name}}
+             </p>
+          </div>
+       </div>
+    </div>
+</div>
