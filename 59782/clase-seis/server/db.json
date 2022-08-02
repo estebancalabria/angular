@@ -1,0 +1,34 @@
+{
+  "libros": [
+    {
+      "id": 1,
+      "nombre": "La torre oscura",
+      "autor": "Stephen King",
+      "genero": "Terror"
+    },
+    {
+      "id": 2,
+      "nombre": "El secreto de McFlower",
+      "autor": "Laurence Sanders",
+      "genero": "Policial"
+    },
+    {
+      "id": 3,
+      "nombre": "Dune",
+      "autor": "Frank Herbert",
+      "genero": "Ciencia Ficción"
+    },
+    {
+      "id": 4,
+      "nombre": "El señor de los anillos",
+      "autor": "J.R.Tolkien",
+      "genero": "Fantasia"
+    },
+    {
+      "id": 5,
+      "nombre": "The Witcher",
+      "autor": "CD",
+      "genero": "Fantasia"
+    }
+  ]
+}

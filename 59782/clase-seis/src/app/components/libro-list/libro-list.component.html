@@ -1,0 +1,23 @@
+<legend class="alert alert-primary text-center mb-1">Catalogo de libros</legend>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Autor</th>
+            <th>Genero</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let libro of libros">
+            <td>{{libro.nombre}}</td>
+            <td>{{libro.autor}}</td>
+            <td>{{libro.genero}}</td>
+            <td class="text-end">
+                <button class="btn btn-primary" (click)="editarLibro(libro.id)">
+                    Editar
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

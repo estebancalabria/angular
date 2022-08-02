@@ -1,0 +1,15 @@
+<form [formGroup]="form">
+    <legend class="alert alert-primary text-center">Editando el libro "{{libro?.nombre}}"</legend>
+ 
+    <label>Nombre:</label>
+    <input class="form-control" type="text" formControlName="nombre" />
+
+    <label>Autor:</label>
+    <input class="form-control" type="text" formControlName="autor" />
+
+    <label>Genero:</label>
+    <input class="form-control" type="text" formControlName="genero" />
+
+    <button class="btn btn-success w-100 mt-2" (click)="editar()">Aceptar</button>
+</form>
+<button class="btn btn-danger w-100 mt-1" (click)="cancelar()">Cancelar</button>
