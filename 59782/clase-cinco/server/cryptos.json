@@ -1,0 +1,8 @@
+{
+    "cryptos" : [
+        {"id":1, "nombre":"Etherium", "simbolo": "ETH", "cotizacion" : 1711},
+        {"id":2, "nombre":"ZoeCash", "simbolo": "ZC$", "cotizacion" : 232},
+        {"id":3, "nombre":"Cardano", "simbolo": "CA$", "cotizacion" : 433},
+        {"id":4, "nombre":"Dogecoin", "simbolo": "DG$", "cotizacion" : 532}
+    ]
+}

@@ -1,1 +1,24 @@
-<h1>Este es el componente de Crytos</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <!--<th>Nombre</th>
+            <th>Simbolo</th>
+            <th>Cotizacion</th> -->
+            <th *ngFor="let p of properties">{{ p | titlecase }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of cryptos">
+            <td *ngFor="let p of properties">{{ c[p] }}</td>
+            <!--<td>{{c.nombre}}</td>
+            <td>{{c.simbolo}}</td>
+            <td>{{c.cotizacion}}</td>-->
+        </tr>
+    </tbody>
+</table>
+<div *ngIf="error.length>0" class="alert alert-danger">
+    {{error}}
+</div>
+
+<!-- #region -->
+
