@@ -1,0 +1,12 @@
+{
+    "personajes" : [
+        {
+            "id":1, 
+            "nombre":"Varzak",
+            "raza" : "Elfo",
+            "profesion" : "Mago",
+            "puntosDeVida":2000,
+            "nivel" : 1
+         }
+    ]
+}

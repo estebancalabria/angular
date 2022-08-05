@@ -1,0 +1,9 @@
+<main class="container">
+  <div class="row">
+    <div class="col-6"><app-ficha-personaje [lastdmg]="32"></app-ficha-personaje></div>
+    <div class="col-6"><app-ficha-personaje></app-ficha-personaje></div>  
+  </div>
+  
+  <app-atacar-personaje (eventoAtaque)="recibiEventoAtaque($event)"></app-atacar-personaje>
+  
+</main>
