@@ -1,1 +1,14 @@
-<p>register works!</p>
+<form class="w-50 mx-auto mt-3" [formGroup]="form" (ngSubmit)="registrar()">
+    <legend>
+        Formulario de Registro
+    </legend>
+
+    Email:
+    <input class="form-control" formControlName="email" type="email" />
+    Password
+    <input class="form-control" formControlName="password" type="password" />
+    
+    <button class="btn btn-success w-100 mt-2">
+        Registrar
+    </button>
+</form>

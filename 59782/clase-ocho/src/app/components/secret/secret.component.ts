@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TareaService } from 'src/app/services/tarea.service';
 
 @Component({
   selector: 'app-secret',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecretComponent implements OnInit {
 
-  constructor() { }
+  tareas : any[] = [];
+
+  constructor(private service : TareaService) { }
 
   ngOnInit(): void {
+    this.service.getAll().subscribe((resp:any[])=>{
+      this.tareas= resp;
+    });
   }
 
 }

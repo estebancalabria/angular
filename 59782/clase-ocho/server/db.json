@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "email": "root@gmail.com",
+      "password": "$2a$10$6O.qDXss2WKAgpqVy4XNa.XeR8TVH8G.84vgp8ldLkHPfFLyswPpm",
+      "id": 1
+    },
+    {
+      "email": "root2@gmail.com",
+      "password": "$2a$10$rvHtAeUUtzI9E3ogxRRqxOcBAOHBnb6p4/IhGIBzAfuu0BG2MyP1.",
+      "id": 2
+    }
+  ],
+  "tareas": [
+    {
+      "id": 1,
+      "nombre": "Colgar la ropa",
+      "done": false
+    },
+    {
+      "id": 2,
+      "nombre": "Aprender JWT en Angular",
+      "done": false
+    },
+    {
+      "id": 3,
+      "nombre": "Terminar la ultima clase",
+      "done": false
+    }
+  ]
+}
