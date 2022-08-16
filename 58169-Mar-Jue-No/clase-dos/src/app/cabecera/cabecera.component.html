@@ -1,0 +1,7 @@
+<header class="alert alert-primary text-center">
+    <h1 [class]="claseTitulo" [style]="'color:'+colorTitulo">{{titulo}}</h1>
+    <h2 class="display-2" [style.color]="colorSubtitulo" >
+        {{subtitulo | titlecase | slice : 0 : subChars}}
+    </h2>
+</header>
+
