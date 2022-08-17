@@ -1,0 +1,8 @@
+<header class="alert alert-primary text-center mb-0">
+   <h1 class="display-1">{{titulo | uppercase}}</h1>
+   <h2 class="display-4">{{subtitulo | titlecase | slice : 0 : subtitulo_chars}}</h2>
+   <!--Ejemplo de comentario-->
+</header>
+<div class="bg-dark text-light text-end p-2">
+  {{fecha | date : "dd/MM/yyyy"}}
+</div>
