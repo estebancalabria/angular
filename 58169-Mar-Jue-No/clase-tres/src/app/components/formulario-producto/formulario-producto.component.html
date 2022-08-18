@@ -1,0 +1,56 @@
+<form #formulario="ngForm" class="w-50 mx-auto" 
+    (ngSubmit)="submitForm(formulario)">
+
+    <legend class="border rounded p-2 text-center">
+        Formulario de Producto
+    </legend>
+    
+    Codigo:
+    <input class="form-control" type="number" 
+        id="codigo" name="codigo" 
+        [(ngModel)]="modelo.codigo" 
+        required
+        min="10000"
+        max="9999999"
+        #txtCodigo="ngModel"/>
+    <div [hidden]="txtCodigo.valid" class="text-danger text-end">
+        {{txtCodigo.errors |json }}
+    </div>
+
+    Nombre:
+    <input class="form-control" type="text" 
+        id="nombre" name="nombre" 
+        [(ngModel)]="modelo.nombre"
+        #txtNombre="ngModel"
+        minlength="5"
+        required/>
+    <div *ngIf="txtNombre.errors?.['minlength']" class="text-danger text-end">
+        El campo es demasiado corto
+    </div>
+    <div *ngIf="txtNombre.errors?.['required']" class="text-danger text-end">
+        El campo no puede estar vacio
+    </div>
+
+    Fecha:
+    <input class="form-control" type="date" 
+        id="fecha" name="fecha" 
+        [ngModel]="modelo.fecha | date : 'yyyy-MM-dd'"
+        (ngModelChange)="modelo.fecha = $event"
+        #txtFecha="ngModel"
+        required/>
+    <div *ngIf="txtFecha.errors?.['required']" class="text-danger text-end">
+        El campo no puede estar vacio
+    </div>
+    
+    <button class="btn btn-primary text-center w-100 mt-2">
+        Confirmar Datos
+    </button>
+</form>
+
+<div>
+    <h3>Debug Data</h3>
+    <div>Modelo: {{modelo | json}}</div>
+    <div>formulario class: {{ formulario.constructor.name }}</div>
+    <div>formulario valido: {{ formulario.valid }}</div>
+    <div>formulario: {{ formulario | json }}</div>
+</div>
