@@ -1,0 +1,22 @@
+<ul class="list-group">
+    <li class="list-group-item active">Las ultimas novedades de Angular</li>
+    <li *ngIf="noticias.length === 0" class="list-group-item text-center">
+        <div class="spinner-border mt-4" role="status">
+        </div>
+        Cargando noticias...
+    </li>
+    <li  class="list-group-item" *ngFor="let noti of noticias">
+        <img #imagen class="float-start me-2" 
+             [src]="'https://picsum.photos/200?'+noti.titulo" />
+        <div [hidden]="!imagen.complete">
+            <h3>{{noti.titulo}}</h3>
+            <p>{{noti.contenido}}{{noti.contenido}}{{noti.contenido}}</p>
+        </div>
+        <div [hidden]="imagen.complete">
+            <div class="spinner-grow text-primary" role="status">
+                <span class="sr-only"></span>
+            </div>
+            Cargando noticia
+        </div>
+    </li>
+</ul>

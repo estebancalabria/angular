@@ -1,0 +1,11 @@
+<ul class="w-50 mx-auto list-group">
+    <li class="list-group-item active">Lista de Lenguajes</li>
+    <li *ngIf="lenguajes.length===0" class="list-group-item text-center"><h3>No hay nada que mostrar</h3></li>
+    <li *ngFor="let lang of lenguajes" class="list-group-item">
+        <img #img class="float-start me-3" [src]="'https://picsum.photos/50?'+lang.nombre"/>
+        <div *ngIf="img.complete">
+            <div class="fw-bold">{{lang.nombre}}</div>
+            <div class="fw-light">{{lang.descripcion}}</div>
+        </div>
+    </li>
+</ul>
