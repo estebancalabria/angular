@@ -1,0 +1,8 @@
+<div class="row g-2">
+    <div *ngFor="let char of characters" class="col-3">
+        <div class="card w-100">
+            <img class="card-img-top" style="height: 250px" [src]="char.imageUrl" />
+            <h3 class="card-title text-center">{{char.name}}</h3>
+        </div>
+    </div>
+</div>
