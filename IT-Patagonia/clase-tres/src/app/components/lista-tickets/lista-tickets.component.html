@@ -1,0 +1,31 @@
+<ul class="list-group" style="overflow: hidden; overflow-y:scroll; height:70vh">
+    <li class="list-group-item active">Lista de Tickets</li>
+    <li class="list-group-item pt-1 pb-1">
+        <div class="input-group">
+            <input #txtTarea class="form-control" type="text" placeholder="Tarea Nueva..." (keydown)="onInputChange($event)" />
+            <button class="btn btn-outline-success" (click)="agregarTarea(txtTarea.value); txtTarea.value = '';">
+                Add
+            </button>
+            <button class="btn btn-outline-success" (click)="otraFormaAgregarTarea()">
+                +
+            </button>
+        </div>
+    </li>
+    <li class="list-group-item" *ngFor="let ticket of tickets">
+        <div>
+            <img class="float-start bg-secondary rounded-circle text-white p-2 me-3"
+            style="width: 48px"
+            src="https://raw.githubusercontent.com/twbs/icons/main/icons/person-fill.svg">
+           
+            <button class="float-end btn btn-danger mt-2" (click)="eliminarTicket(ticket.id!)">
+                Eliminar
+            </button>
+
+            <div class="fw-bold">{{ticket.titulo}}</div>
+            <div class="text-secondary">{{ticket.fecha | date : "dd/MM/yyyy"}}</div>
+        </div>
+    </li>
+    <li *ngIf="tickets.length===0" class="list-group-item text-center fw-bold">
+        No hay Tickets que Mostrar
+    </li>
+</ul>
