@@ -1,0 +1,53 @@
+<form class="m-3" #form="ngForm" (ngSubmit)="submitForm(form)">
+    <legend>Complete los datos para inscribirse</legend>
+
+    Nombre:
+    <!--<input #nombre type="text" class="form-control" 
+           [value]="inscripcion.nombre" (keydown)="inscripcion.nombre = nombre.value"/>-->
+    <input type="text" class="form-control" name="txtNombre" #nombre="ngModel"
+           [(ngModel)]="inscripcion.nombre"
+           required />
+    
+    <div *ngIf="!nombre.valid" class="text-end text-danger">
+        {{nombre.errors | errorMessage}}
+    </div>
+
+    Telefono:
+    <div class="input-group">
+        <div class="input-group-prepend" >
+            <span class="input-group-text">+54 9 11</span> 
+        </div>
+        <input type="number" class="form-control" name="txtTelefono" 
+             #telefono="ngModel" placeholder="Solo numeros"
+             required min="10000000" max="99999999"
+            [(ngModel)]="inscripcion.telefono"  />
+    </div>
+    <div *ngIf="!telefono.valid" class="text-end text-danger">
+        {{telefono.errors | errorMessage}}
+    </div>
+
+
+    Mail:
+    <input type="email" class="form-control" name="txtMail"
+       #email="ngModel" required
+       [(ngModel)]="inscripcion.correo" />
+
+    <div *ngIf="!email.valid" class="text-end text-danger">
+        {{email.errors | json}}
+    </div>
+
+    Fecha :
+    <input type="date" class="form-control" name="fecha" 
+        [ngModel]="inscripcion.fecha | date : 'yyyy-MM-dd'"
+        (ngModelChange)="inscripcion.fecha = $event" />
+    
+
+    <button [disabled]="form.invalid" class="btn btn-success w-100 mt-2">Incribirse</button>
+</form>
+
+<div>
+    <h4>Degug Info</h4>
+    <div>Modelo: {{inscripcion | json}}</div>
+    <div>Form Valido: {{form.valid}}</div>
+</div>
+

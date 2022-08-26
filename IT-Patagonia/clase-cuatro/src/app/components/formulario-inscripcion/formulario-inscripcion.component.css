@@ -1,0 +1,7 @@
+input.ng-valid:not(.ng-pristine){
+    border-right: 5px solid green;
+}
+
+input.ng-invalid:not(.ng-pristine){
+    border-right: 5px solid red;
+}
