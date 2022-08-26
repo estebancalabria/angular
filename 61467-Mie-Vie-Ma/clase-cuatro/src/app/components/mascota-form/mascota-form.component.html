@@ -1,0 +1,39 @@
+<form #form="ngForm" class="bg-light bg-gradient rounded p-3 position-relative" 
+     (ngSubmit)="submitForm(form)">
+
+    <h1 class="badge badge-pill position-absolute top-0 start-100 translate-middle"
+        [class]="form.valid?'bg-primary':'bg-danger'">
+        Valido : {{form.valid}}
+    </h1>
+
+    <legend>🐶 Datos de mi Mascota</legend>
+    Nombre:
+    <!--<input type="text" class="form-control" [value]="mascota.nombre" (keypress)="onChangeNombre($event)" />-->
+    <input type="text" class="form-control" name="nombre" 
+        #nombre="ngModel"
+        [(ngModel)]="mascota.nombre" required/>
+    <div class="text-end text-danger" *ngIf="nombre.errors?.['required']">
+        😭😭😭 No le pusiste un nombre al pichicho?
+    </div>
+
+    Fecha De Nacimiento (aprox):
+    <input type="date" class="form-control" name="fecha" 
+        [ngModel]="mascota.fechaDeNacimiento | date : 'yyyy-MM-dd'" 
+        (ngModelChange)="mascota.fechaDeNacimiento = $event"/>
+    
+    Cantidad de Vacunas:
+    <input type="number" class="form-control" name="vacunas" 
+        #vacunas="ngModel"
+        [(ngModel)]="mascota.cantidadVacunas" required min="1" max="5" />
+    <div class="text-end text-danger" *ngIf="vacunas.errors">
+        {{vacunas.errors | json}}
+    </div>
+
+    <button class="btn btn-primary w-100 mt-2">
+        🐶 Acariciar y dar mimos 🐶
+    </button>
+</form>
+<div>
+    <h5>Debug info</h5>
+    <div>Mascota: {{mascota | json}}</div>
+</div>
