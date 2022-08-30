@@ -1,0 +1,25 @@
+{
+    "servicios": [
+        {
+            "id": 1,
+            "nombre": "Capacitaciones",
+            "descripcion": "Profes con toda la experiencia y onda",
+            "imagen": "https://picsum.photos/100?1",
+            "costo" : 1000
+        },
+        {
+            "id": 2,
+            "nombre": "Desarrollo",
+            "descripcion": "Contamos con profesionales idoneos en cada tecnologia",
+            "imagen": "https://picsum.photos/100?2",
+            "costo" : 1000
+        },
+        {
+            "id": 3,
+            "nombre": "Mantenimiento",
+            "descripcion": "Para que su harware nunca sufra desperfectos",
+            "imagen": "https://picsum.photos/300?3",
+            "costo" : 1000
+        }
+    ]
+}

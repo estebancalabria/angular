@@ -1,0 +1,12 @@
+<div class="row">
+    <div *ngFor="let servicio of servicios" class="col-3">
+        <div class="card w-100 mb-2">
+            <img class="card-img-top" [src]="servicio.imagen" />
+            <h4 class="card-title">{{servicio.nombre}}</h4>
+            <p class="card-text">{{servicio.descripcion}}</p>
+            <div class="card-footer text-end">
+                {{servicio.costo}} U$d
+            </div>
+        </div>     
+    </div>
+</div>
