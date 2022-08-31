@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <legend class="alert alert-info text-center"> Datos del evento</legend>
+
+    Nombre:
+    <input type="text" class="form-control" formControlName="nombre" />
+    <div class="text-danger text-end">
+        {{form.get("nombre")?.errors | json}}
+    </div>
+
+    Fecha:
+    <div class="input-group">
+        <input type="date" class="form-control" formControlName="fecha"
+         [ngModel]="form.value.fecha | date:'yyyy-MM-dd' " />
+        <button class="btn btn-outline-secondary" type="button" (click)="incMes()">
+            Buscar Disponible
+        </button>
+    </div>
+
+    Entradas:
+    <input type="number" class="form-control" formControlName="cantidadEntradas" />
+    <div *ngIf="form.get('cantidadEntradas')?.errors?.['required']" class="text-danger text-end">
+        La cantidad es requerida
+    </div>
+    <div *ngIf="form.get('cantidadEntradas')?.errors?.['min']" class="text-danger text-end">
+        No puede haber un evento con tan pocas entradas
+    </div>
+
+    <button class="btn btn-success w-100 mt-2">
+        Registrar Evento
+    </button>
+</form>
+
+<div>
+    <h4>Debug Info</h4>
+    <div>Value : {{ form.value | json }}</div>
+</div>
