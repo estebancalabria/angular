@@ -1,0 +1,8 @@
+<div class="row">
+    <div *ngFor="let perrito of perritos" class="col-3">
+        <div class="card w-100">
+            <img class="card-img-top" [src]="perrito.imagen" />
+            <h2 class="card-title">{{perrito.nombre}}</h2>
+        </div>
+    </div>
+</div>

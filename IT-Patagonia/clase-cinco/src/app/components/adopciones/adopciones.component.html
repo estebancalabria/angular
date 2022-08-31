@@ -1,0 +1,13 @@
+
+<h1 class="alert alert-info mt-3 text-center">Nuestros perritos en adopción</h1>
+<div class="row">
+    <div *ngFor="let perrito of perritos" class="col-3 mb-2">
+        <div class="card w-100">
+            <img class="card-img-top" style="height: 100px;" [src]="(perrito.imagen | async)?.[0]?.url" />
+            <h2 class="card-title text-center">{{perrito.nombre}}</h2>
+            <div class="card-footer text-center">
+                <button class="btn btn-success w-100">Adoptar</button>
+            </div>
+        </div>
+    </div>
+</div>

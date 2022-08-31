@@ -1,0 +1,19 @@
+<header class="bg-success text-light p-3 text-center">
+  <h1 class="display-1">
+    <div [style]="'display:inline-block; transform : rotate('+angulo+'deg)'">🐶</div>
+    Angular Pet Family
+    <div [style]="'display:inline-block; transform : rotate('+angulo+'deg)'">🐶</div>
+  </h1>
+  <h2 class="display-2">Adopci&oacute;n de mascotas</h2>
+</header>
+<nav class="navbar-nav bg-dark">
+  <ul class="nav  mx-auto">
+    <li class="nav-item"><a class="nav-link" [routerLink]="rutas.PATH_HOME">Home</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="rutas.PATH_ADOPCIONES">Adopciones</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="rutas.PATH_DONACIONES">Donaciones</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="rutas.PATH_CONTACTO">Contacto</a></li>
+  </ul>
+</nav>
+<main class="main w-50 mx-auto">
+  <router-outlet></router-outlet>
+</main>
