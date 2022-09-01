@@ -1,0 +1,11 @@
+{
+  "turnos": [
+    {
+      "nombre": "Juan",
+      "especialidad": "Clinico",
+      "desde": "2022-09-01T23:29:00.000Z",
+      "hasta": "2022-09-02T00:28:00.000Z",
+      "id": 1
+    }
+  ]
+}
