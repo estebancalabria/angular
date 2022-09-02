@@ -1,0 +1,15 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let libro of libros">
+        <mat-card style="width: 100%; margin-right:0.5em">
+            <mat-card-header>
+                <div mat-card-avatar [style]="'background-image: url('+libro.imagen+');'"></div>
+                <mat-card-title>{{libro.nombre}}</mat-card-title>
+                <mat-card-subtitle>{{libro.autor}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="libro.imagen" style="height: 200px" />
+            <mat-card-content>
+                <p>{{libro.descripcion}}</p>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
