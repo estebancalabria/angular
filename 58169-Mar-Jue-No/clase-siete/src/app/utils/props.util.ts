@@ -4,3 +4,4 @@ export const _$ = <T>()=>{
         [P in keyof T] : P; 
     }
 }
+\

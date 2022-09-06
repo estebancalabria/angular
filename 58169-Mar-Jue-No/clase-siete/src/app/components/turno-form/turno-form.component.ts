@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TurnoModel } from 'src/app/models/turno.model';
 import { TurnoService } from 'src/app/services/turno.service';
-import { _$ } from 'src/app/utils/props.util';
+import { _$, __$ } from 'src/app/utils/props.util';
 import Swal from "sweetalert2";
 
 @Component({
@@ -16,15 +16,10 @@ export class TurnoFormComponent implements OnInit {
 
   constructor(private formBuilder : FormBuilder,
     private service: TurnoService) { 
-    this.form = this.formBuilder.group({
-      id:0,
-      nombre:'',
-      especialidad:"",
-      desdeDia : null,
-      desdeHora : null,
-      hastaDia : null,
-      hastaHora: null
-    });
+    this.form = this.formBuilder.group<TurnoModel>(
+      new TurnoModel(0,"","",new Date(),new Date())
+    );
+
 
     this.form.get(_$<TurnoModel>().nombre)?.addValidators([Validators.required]);
     this.form.get(_$<TurnoModel>().especialidad)?.addValidators([Validators.required]);
@@ -32,6 +27,10 @@ export class TurnoFormComponent implements OnInit {
     this.form.get("desdeHora")?.addValidators([Validators.required]);
     this.form.get("hastaDia")?.addValidators([Validators.required]);
     this.form.get("hastaHora")?.addValidators([Validators.required]);
+  }
+
+  get formControlNames():{ [P in keyof TurnoModel] : P}{
+    return {} as { [P in keyof TurnoModel] : P }
   }
 
   ngOnInit(): void {

@@ -1,0 +1,24 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Jugador</th>
+            <th>Pais</th>
+            <th>Dorsal</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of figus">
+            <td><img [src]="'./assets/'+ f.imagen" style="width: 70px; height: 80px;" /></td>
+            <td>{{f.nombre}}</td>
+            <td>{{f.pais}}</td>
+            <td>{{f.dorsal}}</td>
+            <td class="text-center align-middle">
+                <a class="btn btn-success" [routerLink]="'figurita/'+f.id">
+                    Editar
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

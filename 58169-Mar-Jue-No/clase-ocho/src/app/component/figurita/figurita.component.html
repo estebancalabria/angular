@@ -1,0 +1,27 @@
+<form [formGroup]="form" (submit)="submit()">
+
+    <legend class="alert alert-danger text-center">Datos de la figurita</legend>
+
+    <div class="row">
+        <div class="col-3">
+            <img style="width: 200px; height:250px;" 
+            [src]="'assets/' + form.value.imagen" />
+        </div>
+
+        <div  class="col-9">
+            Nombre:
+            <input class="form-control" type="text" [formControlName]="f.nombre" />
+
+            Pais:
+            <select class="form-control" [formControlName]="f.pais">
+                <option *ngFor="let pais of paises" [value]="pais">{{pais}}</option>
+            </select>
+
+
+            Dorsal:
+            <input class="form-control" type="number" [formControlName]="f.dorsal" />
+
+            <button class="btn btn-success w-100 mt-2">Actualizar Figurita</button>
+        </div>
+    </div>
+</form>
