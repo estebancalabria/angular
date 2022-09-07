@@ -1,0 +1,20 @@
+<header class="bg-dark text-light p-2 text-center">
+    <h1 class="display-4">
+      <app-rotating-text text="⚽"></app-rotating-text> 
+      Portal de Deportes 
+      <app-rotating-text text="⚽"></app-rotating-text> 
+    </h1>
+    <p>La principal pagina de apuestas en el deporte<p>
+</header>
+<nav class="navbar-nav">
+  <ul class="nav mx-auto">
+    <li class="nav-item"><a class="nav-link" routerLink="">Home</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="partidos">Partidos</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="apuestas">Apuestas</a></li>
+    <li class="nav-item"><a class="nav-link" routerLink="contactos">Contactos</a></li>
+  </ul>
+</nav>
+<hr class="mt-0"/>
+<main class="container mt-2">
+   <router-outlet></router-outlet>
+</main>

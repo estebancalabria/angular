@@ -1,0 +1,31 @@
+<h4 class="alert alert-info text-center">Partidos Jugados</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Ubicacion</th>
+            <th>Local</th>
+            <th>Visitante</th>
+            <th>Ganador</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of partidos">
+            <td>{{p.datetime | date : 'yyyy-MM-dd'}}</td>
+            <td>{{p.venue}}</td>
+            <td class="text-center">   
+                <img [style.width]="'32px'"
+                    [style.height]="'32px'"
+                    [src]="getFlagUrl(p.home_team.code)" />
+                <div>{{p.home_team.country}}</div>
+            </td>
+            <td  class="text-center">
+                <img [style.width]="'32px'"
+                [style.height]="'32px'"
+                [src]="getFlagUrl(p.away_team.code)" />
+                <div>{{p.away_team.country}}</div>
+            </td>
+            <td>{{p.winner}}</td>
+        </tr>
+    </tbody>
+</table>
