@@ -1,0 +1,22 @@
+<form [formGroup]="form" (submit)="submit()">
+    Nombre:
+    <input type="text" class="form-control" formControlName="nombre" />
+    <div *ngIf="!form.get('nombre')?.valid" class="text-danger text-end">
+        {{form.get('nombre')?.errors | json}}
+    </div>
+
+    Precio:
+    <input type="number" class="form-control"  formControlName="precio"/>
+    <div *ngIf="!form.get('precio')?.valid" class="text-danger text-end">
+        {{form.get('precio')?.errors | json}}
+    </div>
+
+    Fecha Emision:
+    <input type="date" class="form-control"  formControlName="fechaEmision"/>
+
+    <button class="btn btn-success w-100 mt-2">Agregar</button>
+</form>
+<div>
+    <h3>Debug Info</h3>
+    <div>Modelo : {{ form.value | json }}</div>
+</div>

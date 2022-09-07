@@ -1,0 +1,8 @@
+{
+    "productos" : [
+        {"id":1, "nombre":"Placa de Video", "fechaEmision":"2022-01-01", "precio": 100},
+        {"id":2, "nombre":"Notebook", "fechaEmision":"2022-01-01", "precio": 100},
+        {"id":3, "nombre":"Monitor", "fechaEmision":"2022-01-01", "precio": 100},
+        {"id":4, "nombre":"Mineador de Bitcoin", "fechaEmision":"2022-01-01", "precio": 100000}
+    ]
+}
