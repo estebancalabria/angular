@@ -1,0 +1,34 @@
+
+<div class="text-end">
+    <a routerLink="agregar" class="btn btn-success rounded rounded-circle">
+        +
+    </a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Emision</th>
+            <th class="text-end">Precio ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let producto of productos">
+            <td>
+                <a [routerLink]="['editar', producto.id]" 
+                   class="btn btn-success rounded rounded-circle me-2">
+                    ✏️
+                </a>
+                <button class="btn btn-danger rounded rounded-circle"
+                (click)="borrar(producto.id)">
+                    🗑️
+                </button>
+            </td>
+            <td>{{producto.nombre  }}</td>
+            <td>{{producto.fechaEmision | date : "yyyy-MM-dd"}}</td>
+            <td class="text-end">{{producto.precio | currency : "$" }}</td>
+        </tr>
+    </tbody>
+</table>
