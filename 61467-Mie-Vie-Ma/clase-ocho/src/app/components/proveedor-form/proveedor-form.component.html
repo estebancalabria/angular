@@ -1,0 +1,14 @@
+<form [formGroup]="form" (submit)="submit()">
+    <legend class="alert alert-info">Datos del Proveedor</legend>
+    Nombre:
+    <input type="text" class="form-control" formControlName="nombre"/>
+    
+    Cuit:
+    <input type="number" class="form-control" formControlName="cuit"/>
+
+    Direccion:
+    <input type="text" class="form-control" formControlName="direccion"/>
+
+    <button class="btn btn-success w-100 mt-2">Editar</button>
+    <a class="btn btn-danger w-100 mt-1" routerLink="">Volver</a>
+</form>

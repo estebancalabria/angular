@@ -1,0 +1,28 @@
+{
+  "proveedores": [
+    {
+      "id": 1,
+      "nombre": "Facebook",
+      "cuit": 2678698901,
+      "direccion": "East Us"
+    },
+    {
+      "id": 2,
+      "nombre": "Google",
+      "cuit": 2678698901,
+      "direccion": "West Us"
+    },
+    {
+      "id": 3,
+      "nombre": "Microsoft",
+      "cuit": 2678698901,
+      "direccion": "Silicon Valey"
+    },
+    {
+      "id": 4,
+      "nombre": "Amazon",
+      "cuit": 1223323,
+      "direccion": "Rusia"
+    }
+  ]
+}
