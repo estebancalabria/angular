@@ -1,0 +1,10 @@
+<ng-template [ngIf]="items.length>0" >
+    <ul class="list-group">
+        <li class="list-group-item active">{{titulo}}</li>
+        <li class="list-group-item" *ngFor="let item of items">{{item}}</li>
+    </ul>
+</ng-template>
+
+<ng-template [ngIf]="items.length==0">
+    <h3>{{mensajeVacio}}</h3>
+</ng-template>

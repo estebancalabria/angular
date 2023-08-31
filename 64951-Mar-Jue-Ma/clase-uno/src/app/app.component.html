@@ -1,0 +1,6 @@
+<header class="alert alert-info text-center" [style.color]="color">
+  <h1>{{mensaje | titlecase}}</h1>
+  <h2>{{subtitulo |  uppercase}}</h2>
+  <h5 class="text-end">{{fecha | date : "yyyy-MM-dd"}}</h5>
+  <h5 class="text-end">{{visitas | number:"1.0"}}</h5>
+</header>

@@ -1,0 +1,15 @@
+<header class="bg-danger text-light p-3" [ngClass]=" centrado ? 'text-center': '' ">
+    <h1>{{titulo | titlecase}}</h1>
+    <h2>{{subtitulo | titlecase}}</h2>
+    
+    <div class="text-end" *ngIf="usuario.length>0">
+        Bienvenido {{usuario}}. <a href="#">Logout</a>
+    </div>
+
+    <ng-template [ngIf]="usuario.length==0">
+        <div class="text-end">
+            Registrese para trabajar <a href="#">Login</a>&nbsp;<a href="#">Sing Up</a>
+        </div>
+    </ng-template>
+
+</header>

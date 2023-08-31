@@ -1,0 +1,12 @@
+<header [class]="headerClass">
+  <h1>{{titulo | titlecase | slice:0:longitudTitulo}}</h1>
+</header>
+<main class="container text-center">
+  <button class="btn btn-primary mt-3" (click)="realizarSorteo()">
+    Presione aqui para obtener ganar un IPhone 16
+  </button>
+  <div class="text-center p-2">
+      {{premio}}
+  </div>
+</main>
+<app-footer></app-footer>
