@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-4" *ngFor="let personaje of personajes">
+        <div class="card w-100">
+            <img class="card-img-top" [src]="personaje.image" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{personaje.name}}</h5>
+                <p class="card-text">
+                    {{personaje.species}} {{personaje.status}} {{personaje.type}}
+                </p>
+                <a href="#" class="btn btn-primary">Mas Informacion...</a>
+            </div>
+        </div>
+    </div>
+</div>
