@@ -1,0 +1,20 @@
+<section>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Descripcion</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>{{producto.nombre}}</td> 
+                <td>{{producto.descripcion}}</td> 
+                <td>
+                    <a class="btn btn-primary float-end" [href]="'producto/' + producto.id">Editar</a>
+                </td> 
+            </tr>
+        </tbody>
+    </table>
+</section>

@@ -1,0 +1,15 @@
+<section class="mt-5">
+    <form #form="ngForm">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" class="form-control" [(ngModel)]="producto!.nombre" />
+        </div>
+        <div>
+            <label for="descripcion">Descripcion</label>
+            <input id="descripcion" name="descripcion" class="form-control" [(ngModel)]="producto!.descripcion" />
+        </div>
+        <button class="btn btn-primary mt-2 w-100" (click)="volver()">
+            Enviar
+        </button>
+    </form>
+</section>
