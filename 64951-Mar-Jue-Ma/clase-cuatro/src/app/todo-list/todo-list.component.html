@@ -1,0 +1,23 @@
+<ul class="list-group">
+    <li class="list-group-item active">Lista de Tareas</li>
+    <li class="list-group-item">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Ingrese una tarea nueva" (change)="cambiarInput($event)" [value]="nombreTareaNueva" />
+            <button class="btn btn-outline-primary" (click)="agregarTarea($event)">Agregar</button>
+        </div>
+    </li>
+    <li class="list-group-item" *ngFor="let tarea of listaTareas">
+        {{tarea.nombre}}
+
+        <span [ngSwitch]="tarea.prioridad">
+            <span *ngSwitchCase="1" class="bg-danger">(ALTA)</span>
+            <span *ngSwitchCase="2" class="bg-warning">(MEDIA)</span>
+            <span *ngSwitchCase="3" class="bg-success">(BAJA)</span>
+        </span>
+
+        <button class="btn btn-danger float-end" (click)="borrarTarea(tarea.id)">
+           Borrar 
+        </button>
+    </li>
+</ul>
+

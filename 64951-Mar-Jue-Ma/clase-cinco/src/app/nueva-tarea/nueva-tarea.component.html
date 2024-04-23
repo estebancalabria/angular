@@ -1,0 +1,6 @@
+<div class="input-group">
+    <input class="form-control" placeholder="Ingrese nombre tarea nueva" (change)="cambiarInput($event)"
+        [value]="nombreTareaNueva" />
+    <button class="btn btn-outline-primary" (click)="btnAgregarClick()">Agregar</button>
+</div>    
+{{nombreTareaNueva}}

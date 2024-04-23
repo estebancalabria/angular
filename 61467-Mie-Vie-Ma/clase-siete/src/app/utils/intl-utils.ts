@@ -2,6 +2,7 @@ let countryISOMapping = {
     AFG: "AF",
     ALA: "AX",
     ALB: "AL",
+    URU: "UY",
     DZA: "DZ",
     ASM: "AS",
     AND: "AD",
@@ -249,7 +250,9 @@ let countryISOMapping = {
     YEM: "YE",
     ZMB: "ZM",
     ZWE: "ZW",
-    XKX: "XK"    
+    XKX: "XK", 
+    KSA: "SA",
+    POR: "PT"
 }
   
 export default function getCountryISO2(countryCode:string):string {

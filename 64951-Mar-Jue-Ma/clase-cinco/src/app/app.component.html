@@ -1,0 +1,9 @@
+<app-cabecera titulo="Curso de Angular" subtitulo="Clase 5"></app-cabecera>
+<main class="container p-4">
+  <app-todo-list [tareas]='[
+      { id : 1, nombre:"Hacer compras de la casa", autor:"Hector", done: false},
+      { id : 2, nombre:"Mantener equipos", autor:"Ezequiel", done: false},
+      { id : 3, nombre:"Pintar la casa", autor:"Tatiana", done: false}
+    ]' ></app-todo-list>
+  <app-nueva-tarea (agregarTarea)="recibirTareaNueva($event)"></app-nueva-tarea>
+</main>

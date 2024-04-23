@@ -1,8 +1,8 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
     Nombre: 
-    <input type="text" class="form-control" formControlName="nombre" />
+    <input type="text" class="form-control" [formControlName]="formControlNames.nombre" />
     Especialidad:
-    <input type="text" class="form-control" formControlName="especialidad"/>
+    <input type="text" class="form-control" [formControlName]="formControlNames.especialidad"/>
     Desde:
     <div class="input-group">
         <input type="date" class="form-control col-6" formControlName="desdeDia"/>

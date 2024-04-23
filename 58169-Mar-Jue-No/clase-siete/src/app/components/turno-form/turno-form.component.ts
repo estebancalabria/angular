@@ -20,7 +20,7 @@ export class TurnoFormComponent implements OnInit {
       new TurnoModel(0,"","",new Date(),new Date())
     );
 
-
+    this.form.controls['nombre'].addValidators([Validators.required])
     this.form.get(_$<TurnoModel>().nombre)?.addValidators([Validators.required]);
     this.form.get(_$<TurnoModel>().especialidad)?.addValidators([Validators.required]);
     this.form.get("desdeDia")?.addValidators([Validators.required]);
