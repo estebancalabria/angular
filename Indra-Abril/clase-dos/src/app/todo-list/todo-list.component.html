@@ -1,0 +1,35 @@
+<main class="text-center">
+    <ul class="list-group w-50 m-auto">
+        <li class="list-group-item active">
+            <h4>Lista De Tareas</h4>
+        </li>
+
+        <li class="list-group-item text-danger" *ngIf="tareas.length==0">
+            Las tareas que añadas se mostrarán aquí
+        </li>
+
+        <li class="list-group-item" *ngFor="let a of tareas">
+            <div class="text-start">
+                {{ a }}
+                <button class="btn btn-danger float-end" (click)="eliminarTarea(a)">
+                    Delete
+                </button>
+            </div>
+        </li>
+
+        <li class="list-group-item">
+            <div class=" input-group">
+                <input #inputTarea class="form-control" type="text" 
+                        placeholder="Ingrese tarea nueva" />
+                
+                <button class="btn btn-outline-primary" 
+                       (click)="agregarTarea(inputTarea.value) && inputTarea.value='' ">
+                    Agregar
+                </button>
+            </div>
+            <div class="text-danger text-end">
+                {{mensajeError}}
+            </div>
+        </li>
+    </ul>
+</main>

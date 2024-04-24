@@ -1,0 +1,67 @@
+<header class="alert alert-info text-center p-4">
+  {{ titulo | titlecase | slice:0:longitudTitulo}}
+
+  <div class="text-end my-texto-chico">
+    {{fechaActual | date:'dd/MM/yyyy'}}
+  </div>
+
+  <!--<div class="text-end my-texto-chico" [style]=" 'color : ' + color  ">-->
+  <div class="text-end my-texto-chico" [style.color]="color">
+    Valor Bitcoin {{valorBitcoin | currency:'EUR'}}
+  </div>
+</header>
+
+<hr/>
+
+<app-todo-list />
+
+
+<hr/>
+
+
+
+<div class="text-center">
+  <!--<button class="btn btn-primary" onclick="alert('Hola')"> Evento Convncional en Javascript-->
+  <!--<button class="btn btn-primary" (click)="clickBotonMagico()">-->
+    <button class="btn btn-primary" (click)="clickBotonMagico($event)">  
+    Click para algo Maravilloso
+  </button>
+</div>
+
+<div class="text-center">
+  <!--<button class="btn btn-primary" onclick="alert('Hola')"> Evento Convncional en Javascript-->
+  <!--<button class="btn btn-primary" (click)="clickBotonMagico()">-->
+  <!--No es rencomendable usar javascript en un archivo de template-->
+  <!--A veces Angular cambia los id-->
+  <div>Otro boton Maravilloso:</div>
+  <!--<button class="btn btn-primary" id="btn" 
+          onclick="document.getElementById('btn').innerText = Number(document.getElementById('btn').innerText) + 1 ">  
+    1
+  </button>-->
+  <!--Variables de plantilla o template varuables (que se usan en lugr del document.getElementById)-->
+  <!--<button class="btn btn-info" #btn (click)="btn.innerText = 1 + btn.innerText">  
+    1
+  </button-->
+
+  <button class="btn btn-primary" #btn (click)=" clickSegundoBotonMagido(btn)">  
+    1
+  </button>
+
+  <div id="divPrueba">
+      La variable de plantilla #btn es {{ btn }}
+  </div>
+</div>
+
+<ul class="list-group w-25 m-auto">
+  <li class="list-group-item" [ngClass]="(asistentes.length==0) ? 'text-danger':'active' ">
+    Asistentes  <button (click)="cambiarLista">Cambiar Lista</button>
+  </li>
+  <!--Con el hidden el elemento esta en html solo que no se ve-->
+  <!--<li class="list-group-item text-danger" [hidden]="asistentes.length>0" >No Hay Asistentes</li> -->
+  <li class="list-group-item text-danger" *ngIf="asistentes.length==0" >No Hay Asistentes</li>
+
+  <li class="list-group-item" *ngFor="let a of asistentes">
+    {{ a }}
+  </li>
+</ul>
+
