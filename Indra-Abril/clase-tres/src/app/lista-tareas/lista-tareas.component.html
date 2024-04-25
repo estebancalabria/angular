@@ -1,0 +1,13 @@
+<ul class="list-group w-100">
+    <li class="list-group-item active">Lista de Tareas</li>
+    <li class="list-group-item" *ngFor="let tarea of tareas">
+        <div [ngSwitch]="tarea.estado">
+            <span class="bg-danger"  *ngSwitchCase="0">(PENDIENTE) {{tarea.nombre}}</span>
+            <span class="bg-primary" *ngSwitchCase="1">(PROGRESO) {{tarea.nombre}}</span>
+            <span class="bg-success" *ngSwitchDefault>(FINALIZADO) {{tarea.nombre}}</span>
+        </div>
+    </li>
+    <li class="list-group-item" *ngIf="tareas.length == 0">
+        No hay tareas
+    </li>
+</ul>
