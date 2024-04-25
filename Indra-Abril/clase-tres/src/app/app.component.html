@@ -1,14 +1,20 @@
-<app-cabecera 
-   titulo="Bienvenidos a la Clase Tres" 
-   subtitulo="Hoy vemos la Todo List Reloaded"/>
-   
+<app-cabecera titulo="Bienvenidos a la Clase Tres" subtitulo="Hoy vemos la Todo List Reloaded" />
+
 <main class="row">
   <div class="col-4"></div>
   <div class="col-4">
-    <!--Como las tareas va a ser una expresion javascript tengo que usar los []--> 
+    <!--Como las tareas va a ser una expresion javascript tengo que usar los []-->
     <!--El template no me deja omitir los parametros opcionales pero en codigo si-->
     <!--Puedo hacer new TareaModel("ddsds")-->
-    <app-lista-tareas [tareas]="[ {nombre:'Tarea1', estado : 0}, {nombre:'Tarea2', estado : 1},{nombre:'Tarea3', estado : 2}  ]" />
+    
+    <!--<app-lista-tareas [tareas]="[ 
+      {nombre:'Tarea1', estado : EstadoTarea.Pendiente}, 
+      {nombre:'Tarea2', estado : EstadoTarea.EnCurso},
+      {nombre:'Tarea3', estado : EstadoTarea.Completada}  ]" />-->
+    
+    <app-lista-tareas [tareas]="tareas" (eliminar)="eliminarTarea($event)" />
+
+    <app-agregar-tarea  (agregar)="agregarTarea($event)"/>
   </div>
   <div class="col-4"></div>
 </main>

@@ -21,9 +21,11 @@ export class TareaModel {
     //Si al parametro del constructor le pongo public ya me crea:
     // propiedad, getter, setter y this.propiedad=propiedad
     // esto es azucar sintactica o syntactic sugar
+    readonly id : number;
+    private static contador : number = 0;
+    
     constructor(public nombre: string, 
         public estado: EstadoTareaModel = EstadoTareaModel.Pendiente) {
+        this.id = ++TareaModel.contador;
     }
-
-
 }
