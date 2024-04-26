@@ -1,0 +1,58 @@
+<div class="container">
+    <h4 class="alert alert-info">Formulario de Contacto</h4>
+
+    <form [formGroup]="form">
+        <div class="form-group">
+            <label>Nombre</label>
+            <div class="input-group">
+                <input class="form-control" type="text" formControlName="nombre" />
+                <button class="btn btn-outline-primary" (click)="sugerirNombre()">
+                    Sugerir Nombre
+                </button>
+                <div class="text-danger text-end w-100" 
+                     [hidden]="this.form.get('nombre')!.valid">
+                    El campo tiene errores
+                    {{ this.form.get("nombre")?.errors | json}}
+                    {{ this.form.get("nombre")?.errors!['required'] ? "--Requerido--" : "" }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Correo</label>
+            <input class="form-control" type="email" formControlName="correo" />
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Nacimiento</label>
+            <input class="form-control" type="date"  formControlName="fechaDeNacimiento" />
+        </div>
+
+        <div class="form-group">
+            <label>Hijos</label> 
+            <input class="form-control" type="number" formControlName="cantidadHijos" />
+        </div>
+
+        <div class="form-group">
+            <label>Genero</label>
+            <select class="form-select" formControlName="genero">
+                <option value="">[Elija su genero]</option>
+                <option value="masculino">Hombre</option>
+                <option value="femenino">Mujer</option>
+                <option value="otros">Otros</option>
+            </select>
+        </div>
+    </form>
+</div>
+<div>
+    <h4>Debug Info</h4>
+    <div>
+        Contenido de Form : {{ form.value | json }}
+    </div>
+    <div>
+        Formulario Valido :  {{ form.valid }}
+    </div>
+    <div>
+        
+    </div>
+</div>
