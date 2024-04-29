@@ -1,0 +1,43 @@
+  <header>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span>{{titulo}}</span>
+
+    <mat-menu #menu>
+      <button mat-menu-item>Acerca de</button>
+      <button mat-menu-item>Ayuda</button>
+      <button mat-menu-item>Contacto</button>
+    </mat-menu>
+
+  </mat-toolbar>
+</header>
+
+<div [ngStyle]="{padding:'1em'}">
+  
+  <mat-grid-list cols="4" gutterSize="20px">
+    <mat-grid-tile *ngFor="let c of array">
+      <!--Nunca setear los colores en material design por estilos, lo hago por didactica-->
+      <mat-card style="width: 100%; background-color: lightgray">
+        <mat-card-header>
+          <mat-card-title>Titulo de la carta</mat-card-title>
+          <mat-card-subtitle>Subitulo de la carta</mat-card-subtitle>
+        </mat-card-header>
+    
+        <mat-card-content>
+          Aca va el contenido de la carta
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+
+</div>
+
+<div [ngStyle]="{padding:'1em'}">
+  <button mat-button >Un boton de Material Design</button>
+  <button mat-raised-button color="accent" >Un boton de Material Design</button>
+</div>

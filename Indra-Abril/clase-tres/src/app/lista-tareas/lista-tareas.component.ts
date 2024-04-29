@@ -23,6 +23,8 @@ export class ListaTareasComponent {
 
   @Input() tareas : TareaModel[] = [];
   @Output() eliminar : EventEmitter<TareaModel> = new EventEmitter<TareaModel>();
+  //Si esta variabl es true => 
+  mostrarNotificacionTareaAgregada:boolean = false;
 
   getColorTareaSegunEstado(tarea : TareaModel){
     switch (tarea.estado) {
@@ -45,5 +47,12 @@ export class ListaTareasComponent {
     //Vemos que lo borra pero despues se me rompe al agregar
     //this.tareas = this.tareas.filter(t => t.id !== tarea.id);
     this.eliminar.emit(tarea);
+  }
+
+  //Lo ideal seria tener un componente notificacion
+  //Pero me voy ahorrar generar un componente por pereza
+  mostrarNotificacion(){
+    this.mostrarNotificacionTareaAgregada = true;
+    setTimeout(()=>{ this.mostrarNotificacionTareaAgregada =false }, 4000);
   }
 }

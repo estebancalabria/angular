@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { ListaTareasComponent } from './lista-tareas/lista-tareas.component';
@@ -17,6 +17,7 @@ export class AppComponent {
   public readonly EstadoTarea = EstadoTareaModel;
 
   tareas : TareaModel[] = [];
+  @ViewChild(ListaTareasComponent) listarTareas? : ListaTareasComponent;
 
   constructor(){
     //JSON style (No me dejq los parametros por defecto de contructores :( )
@@ -40,6 +41,8 @@ export class AppComponent {
 
   agregarTarea(tarea: TareaModel){
     this.tareas.push(tarea);
+    //Quiero llamar al mostar notificacion del componente listarTareas
+    this.listarTareas && this.listarTareas!.mostrarNotificacion();
   }
 
   eliminarTarea(tarea: TareaModel){

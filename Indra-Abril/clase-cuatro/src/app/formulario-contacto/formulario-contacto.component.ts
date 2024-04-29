@@ -26,7 +26,7 @@ export class FormularioContactoComponent {
       //fechaDeNacimiento : new FormControl<string>("1980-09-20"),
       cantidadHijos : new FormControl<number>(0),
       genero : new FormControl("masculino")
-    });*/
+    })*/
 
     //forma 2 - A partir de un objeto de negocio instanciado
     //        -Contra : no le podemos poner los validators

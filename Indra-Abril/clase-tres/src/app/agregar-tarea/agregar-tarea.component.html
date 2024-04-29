@@ -4,5 +4,11 @@
     <button class="btn btn-outline-primary"          
             (click)="clickBotonAgregarTarea(txtTarea)">
         Agregar
-  </button>
+    </button>
+
+    <!--Aca en vez de pasarme el input entero paso solo el string-->
+    <button class="btn btn-outline-primary"          
+    (click)="clickBotonAgregarTareaConString(txtTarea.value)">
+       AgregarStr
+    </button>
 </div>
