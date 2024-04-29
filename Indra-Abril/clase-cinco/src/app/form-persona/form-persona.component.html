@@ -1,0 +1,56 @@
+<form [formGroup]="form" [ngStyle]="{padding:'2em'}">
+    
+    <h4>Formulario de Persona</h4>
+
+    <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Ingrese su nombre" [formControlName]="Campos.nombre">
+        <mat-icon matSuffix>person</mat-icon>
+        <!--<mat-hint>El nombre de la persona </mat-hint>-->
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+        <mat-label>Url Imagen</mat-label>
+        <input matInput placeholder="Ingrese su nombre" [formControlName]="Campos.imagen">
+        <mat-icon matSuffix>image</mat-icon>
+        <!--<mat-hint>El nombre de la persona </mat-hint>-->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+        <mat-label>Fecha De Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" [formControlName]="Campos.fechaDeNacimiento">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+            <mat-label>Cargo</mat-label>
+            <mat-select [formControlName]="Campos.cargo">
+                <!--public cargo: "Programador" | "QA" | "PM" | "Gerente" | "Analista" | "Ux" | "Otro", -->
+                <mat-option value="Programador">Programador</mat-option>
+                <mat-option value="QA">QA</mat-option>
+                <mat-option value="PM">PM</mat-option>
+                <mat-option value="Gerente">Gerente</mat-option>
+                <mat-option value="Analista">Analista</mat-option>
+                <mat-option value="Ux">Ux</mat-option>
+                <mat-option value="Otro">Otro</mat-option>
+            </mat-select>
+            <mat-icon matSuffix>cases</mat-icon>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput placeholder="Ingrese su descripción" [formControlName]="Campos.description"></textarea>
+        <mat-icon matSuffix>information</mat-icon>
+        <!-- <mat-hint>Descripción (biografía)</mat-hint> -->
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" (click)="confimarCambios()">
+        Editar usuario
+        <mat-icon matSuffix>edit</mat-icon>
+    </button> 
+
+</form>
+
+{{form.value | json}}
+{{Campos | json}}
