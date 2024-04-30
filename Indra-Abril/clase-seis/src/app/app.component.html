@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <span>Angular Clase Seis</span>
+</mat-toolbar>
+
+<nav [ngStyle]="{borderBottom: '1px solid'}">
+  <mat-grid-list cols="3" rowHeight="7:1">
+    <mat-grid-tile>
+      <a mat-button routerLink="home" routerLinkActive="active">
+        Home
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <a mat-button routerLink="canciones" routerLinkActive="active">Canciones</a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <a mat-button routerLink="contacto" routerLinkActive="active">Contacto</a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</nav>
+
+<div [ngStyle]="{margin:'1em'}">
+  <router-outlet></router-outlet>
+</div>
+
+
+<!--Utilizadas en general en la navegacion en angular material-->
+<!-- pero no me sirve para la explicaciom-->
+<!--
+<mat-tab-group>
+  <mat-tab label="First"> Content 1 </mat-tab>
+  <mat-tab label="Second"> Content 2 </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+</mat-tab-group>-->

@@ -1,0 +1,25 @@
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let personaje of respuesta?.results">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{ personaje.name }}</mat-card-title>
+                <mat-card-subtitle>{{ personaje.species }}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="personaje.image" alt="{{ personaje.name }}">
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item>ID: {{ personaje.id }}</mat-list-item>
+                    <mat-list-item>Situación: {{ personaje.status }}</mat-list-item>
+                    <mat-list-item>Tipo: {{ personaje.type }}</mat-list-item>
+                    <mat-list-item>Genero: {{ personaje.gender }}</mat-list-item>
+                    <mat-list-item>Origen: {{ personaje.origin.name }}</mat-list-item>
+                    <mat-list-item>Ubicación: {{ personaje.location.name }}</mat-list-item>
+                    <!-- <mat-list-item>Episodios: {{ personaje.episode.join(', ') }}</mat-list-item>
+                    <mat-list-item>URL: {{ personaje.url }}</mat-list-item> -->
+                    <mat-list-item>Creación: {{ personaje.created }}</mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+

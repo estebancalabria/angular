@@ -1,0 +1,29 @@
+{
+    "cancion": [
+        {
+            "nombre": "La Tortura",
+            "artista": "Shakira ft. Alejandro Sanz",
+            "puntaje": 9.4
+        },
+        {
+            "nombre": "Bailando",
+            "artista": "Enrique Iglesias ft. Descemer Bueno, Gente de Zona",
+            "puntaje": 9.3
+        },
+        {
+            "nombre": "Vivir mi vida",
+            "artista": "Marc Anthony",
+            "puntaje": 9.2
+        },
+        {
+            "nombre": "El Perdón",
+            "artista": "Nicky Jam ft. Enrique Iglesias",
+            "puntaje": 9.1
+        },
+        {
+            "nombre": "Dame tu cosita",
+            "artista": "El Chombo ft. Cutty Ranks",
+            "puntaje": 9.0
+        }
+    ]
+}

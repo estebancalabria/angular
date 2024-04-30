@@ -1,9 +1,8 @@
-
 export type PropNames<T> = {
     [K in keyof T]: string;
-  };
+};
 
-export function objectProps<T extends Record<string, any>>(objeto: T): PropNames<T> {
+export function getObjectProps<T>(objeto: T): PropNames<T> {
     const nombres: any = {};
     for (const key in objeto) {
         if (Object.prototype.hasOwnProperty.call(objeto, key)) {
@@ -12,3 +11,5 @@ export function objectProps<T extends Record<string, any>>(objeto: T): PropNames
     }
     return nombres as PropNames<T>;
 }
+
+
