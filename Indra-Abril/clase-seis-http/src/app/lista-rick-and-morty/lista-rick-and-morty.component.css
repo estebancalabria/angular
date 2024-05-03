@@ -1,12 +1,23 @@
-.card {
-    margin: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-  .card-avatar {
-    border-radius: 50%;
-  }
-  
-  mat-list-item {
-    font-size: 14px;
-  }
+/*.mat-grid-tile {
+  max-height: none; /* Restablece la altura máxima predeterminada */
+/*  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.mat-card {
+  flex-grow: 1; /* Permite que el contenido de la tarjeta crezca verticalmente */
+/*  height: 100%;
+}
+
+mat-grid-list {
+  height: 100%;
+}*/
+
+.mat-card-full-height {
+  height: 100%;
+}
+
+.mat-grid-tile-content{
+  height: 100%;
+}

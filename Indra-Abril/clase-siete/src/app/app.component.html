@@ -1,0 +1,27 @@
+
+<mat-toolbar color="primary">
+    <span>Bienvenidos a Mi Aplicacion de Productos</span>
+    <button mat-button><mat-icon>search</mat-icon></button>
+</mat-toolbar>
+<nav>
+  <mat-grid-list cols="2" rowHeight="15:1">
+    <mat-grid-tile>
+        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" mat-button>
+        <mat-icon>home</mat-icon>
+        Home
+      </a>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <a routerLink="productos" routerLinkActive="active" mat-button>
+        <mat-icon>list</mat-icon>
+        Productos
+      </a>
+    </mat-grid-tile>
+  </mat-grid-list>
+</nav>
+
+<hr />
+
+<main>
+  <router-outlet></router-outlet>
+</main>

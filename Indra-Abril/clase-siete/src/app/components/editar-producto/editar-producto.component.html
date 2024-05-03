@@ -1,0 +1,28 @@
+<div style="margin:2em;">
+    <h1>
+        Editando el producto {{producto?.nombre}}
+    </h1>
+
+    <form [formGroup]="form" [ngStyle]="{padding:'2em'}">
+        <mat-form-field appearance="outline" [ngStyle]="{display:'block'}">
+            <mat-label>Nombre</mat-label>
+            <input matInput [formControlName]="campos.nombre" type="text" placeholder="Ingrese su nombre" />
+        </mat-form-field>
+        <mat-form-field [ngStyle]="{display:'block'}">
+            <mat-label>Precio</mat-label>
+            <input type="number" matInput [formControlName]="campos.precio" placeholder="Precio">
+        </mat-form-field>
+        <div style="text-align: end;">
+            <button mat-raised-button (click)="volver()" style="margin-right: 1em;">
+                Volver
+            </button>
+            <button mat-raised-button color="primary" (click)="guardar()">
+                Guardar
+            </button>
+
+        </div>
+    </form>
+</div>
+
+
+

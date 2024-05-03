@@ -1,0 +1,40 @@
+<h1>Listado de Productos</h1>
+
+<table mat-table [dataSource]="productos">
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="precio">
+        <th mat-header-cell *matHeaderCellDef>Precio</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.precio }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let producto">
+            <a mat-button [routerLink]="'/editar/' + producto.id">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+    <!-- <ng-container matColumnDef="add">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let producto">
+            <a mat-button [routerLink]="'add/' + producto.id">
+                <mat-icon>plus</mat-icon>
+            </a>
+        </td>
+    </ng-container> -->
+    <!-- <ng-container matColumnDef="borrar">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let producto">
+            <a mat-button [routerLink]="'borrar/' + producto.id">
+                <mat-icon>trash</mat-icon>
+            </a>
+        </td>
+    </ng-container> -->
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'precio', 'editar']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'precio', 'editar']"></tr>
+</table>

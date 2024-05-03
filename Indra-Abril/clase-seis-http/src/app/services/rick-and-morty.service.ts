@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponseModel } from '../models/api-response.model';
 import { Observable } from 'rxjs';
