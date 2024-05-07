@@ -6,11 +6,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { Router } from '@angular/router';
 import  Swal  from 'sweetalert2';
+import { NgFor } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-listado-peliculas',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatIconModule],
+  imports: [MatTableModule, MatButtonModule, MatIconModule, NgFor],
   templateUrl: './listado-peliculas.component.html',
   styleUrl: './listado-peliculas.component.css'
 })
@@ -53,22 +55,24 @@ export class ListadoPeliculasComponent {
 
         this.service.borrarPelicula(id)
         .subscribe({
-          next: (data: number) => {  this.recuperarPeliculas(); },
-          error: (res: any) => { 
+          next: (data: number) => {  
+            Swal.fire({
+              title: "Eliminada!",
+              text: "La pelicula ha sido eliminada.",
+              icon: "success"
+            });
 
+            this.recuperarPeliculas();           
+          },
+
+          error: (res: HttpErrorResponse) => { 
             Swal.fire({
               title: "Error!",
-              text: res.error.message,
+              text: (res.status== 404) ? "Elemento no encontrado" : JSON.stringify(res.error),
               icon: "error"
             });
             
            }
-        });
-
-        Swal.fire({
-          title: "Eliminada!",
-          text: "La pelicula ha sido eliminada.",
-          icon: "success"
         });
       }
     });
