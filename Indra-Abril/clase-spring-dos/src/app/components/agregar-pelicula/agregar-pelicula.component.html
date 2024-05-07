@@ -1,0 +1,16 @@
+<h1>Formulario Pelicula</h1>
+
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput [formControlName]="campos.nombre" placeholder="Nombre de la pelicula">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Genero</mat-label>
+        <input matInput [formControlName]="campos.genero" placeholder="Genero de la pelicula">
+    </mat-form-field>
+</form>
+<button mat-raised-button>Cancelar</button>
+<button mat-raised-button (click)="agregarPelicula()">Agregar</button>
+
+{{form.value | json}}

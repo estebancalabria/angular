@@ -1,0 +1,15 @@
+<table mat-table [dataSource]="peliculas">
+
+    <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let pelicula"> {{pelicula.nombre}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="genero">
+        <th mat-header-cell *matHeaderCellDef> Genero </th>
+        <td mat-cell *matCellDef="let pelicula"> {{pelicula.genero}} </td>       
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre','genero']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre','genero']"></tr>
+</table>
