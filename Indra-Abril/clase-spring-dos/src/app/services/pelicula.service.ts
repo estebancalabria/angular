@@ -17,4 +17,8 @@ export class PeliculaService {
   getPeliculas():Observable<PeliculaModel[]>{
     return this.http.get<PeliculaModel[]>("http://localhost:5000/api/pelicula");
   }
+
+  borrarPelicula(id:number):Observable<any>{
+     return this.http.delete<any>("http://localhost:5000/api/pelicula/" + id);
+  }
 }

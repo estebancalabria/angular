@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { PeliculaService } from '../../services/pelicula.service';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class AgregarPeliculaComponent {
   campos: PropNames<PeliculaModel>;
 
   constructor(private fb: FormBuilder,
-    private service: PeliculaService
+    private service: PeliculaService,
+    private router: Router
   ) {
 
     this.form = this.fb.group({
@@ -39,10 +41,15 @@ export class AgregarPeliculaComponent {
   agregarPelicula() {
     this.service.addPelicula(this.form.value)
       .subscribe({
-        next: (data: PeliculaModel) => { window.location.reload(); },
+        next: (data: PeliculaModel) => { this.router.navigate([""]) },
         error: (res: any) => { alert(res.error.message) }
       });
   }
+  
+  cancelar() {
+    this.router.navigate([""]);
+  }
+
 
 
 }

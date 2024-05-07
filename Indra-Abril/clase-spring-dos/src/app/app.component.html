@@ -1,4 +1,14 @@
-<h1>Listado de Peliculas</h1>
+<mat-toolbar color="primary">
+    <span>Talent Camp Movie Database</span>
+</mat-toolbar>
 
-<app-agregar-pelicula></app-agregar-pelicula>
-<app-listado-peliculas></app-listado-peliculas>
+<mat-grid-list rowHeight="25:1" cols="1">
+    <mat-grid-tile>
+       <a routerLink="">Peliculas</a>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<hr />
+
+
+<router-outlet></router-outlet>

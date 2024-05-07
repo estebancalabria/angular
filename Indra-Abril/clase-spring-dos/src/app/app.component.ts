@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PeliculaService } from './services/pelicula.service';
-import { catchError } from 'rxjs';
 import { ListadoPeliculasComponent } from './components/listado-peliculas/listado-peliculas.component';
 import { AgregarPeliculaComponent } from './components/agregar-pelicula/agregar-pelicula.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,
+     RouterModule,
      ListadoPeliculasComponent, 
-     AgregarPeliculaComponent],
+     AgregarPeliculaComponent,
+     MatToolbarModule,
+     MatGridListModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

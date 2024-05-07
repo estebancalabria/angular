@@ -10,7 +10,7 @@
         <input matInput [formControlName]="campos.genero" placeholder="Genero de la pelicula">
     </mat-form-field>
 </form>
-<button mat-raised-button>Cancelar</button>
+<button mat-raised-button (click)="cancelar()">Cancelar</button>
 <button mat-raised-button (click)="agregarPelicula()">Agregar</button>
 
 {{form.value | json}}

@@ -1,27 +1,77 @@
 import { Component } from '@angular/core';
 import { PeliculaService } from '../../services/pelicula.service';
 import { PeliculaModel } from '../../models/pelicula.model';
-import { MatTableModule} from "@angular/material/table"
+import { MatTableModule } from "@angular/material/table"
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule} from '@angular/material/icon';
+import { Router } from '@angular/router';
+import  Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-listado-peliculas',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatButtonModule, MatIconModule],
   templateUrl: './listado-peliculas.component.html',
   styleUrl: './listado-peliculas.component.css'
 })
 export class ListadoPeliculasComponent {
 
-  peliculas:PeliculaModel[] = [];
+  peliculas: PeliculaModel[] = [];
 
-  constructor(private service : PeliculaService) {
+  constructor(private service: PeliculaService,
+    private router: Router) {
 
   }
 
-  ngOnInit(){
+  recuperarPeliculas() {
     this.service.getPeliculas()
-    .subscribe((data:PeliculaModel[])=>{
+    .subscribe((data: PeliculaModel[]) => {
       this.peliculas = data;
     });
+  }
+
+  ngOnInit() {
+    this.recuperarPeliculas();
+  }
+
+  agregarPelicula() {
+    this.router.navigate(["agregar"]);
+  }
+  
+  deletePelicula(id: number) {
+
+    Swal.fire({
+      title: "Esta Seguro?",
+      text: "La pelicula se eliminara permanentemente!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.service.borrarPelicula(id)
+        .subscribe({
+          next: (data: number) => {  this.recuperarPeliculas(); },
+          error: (res: any) => { 
+
+            Swal.fire({
+              title: "Error!",
+              text: res.error.message,
+              icon: "error"
+            });
+            
+           }
+        });
+
+        Swal.fire({
+          title: "Eliminada!",
+          text: "La pelicula ha sido eliminada.",
+          icon: "success"
+        });
+      }
+    });
+
   }
 }
