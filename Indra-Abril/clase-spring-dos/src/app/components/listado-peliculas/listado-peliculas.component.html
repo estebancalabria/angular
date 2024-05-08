@@ -1,32 +1,73 @@
-<button mat-raised-button color="primary" (click)="deletePelicula(999)">
-    [TEST] Borrar Inexistente
-</button>
+<!--<div [ngStyle]="{display:'flex', justifyContent:'center', alignItems:'center'}"-->
+<div [ngStyle]="{position:'fixed', top:'50vh', left:'50%', transform:'translate(-50%, -50%)'}"
+     *ngIf="loading && (errorMessage.length==0)">
+    <mat-progress-spinner color="primary" mode="indeterminate">
+    </mat-progress-spinner>
+</div>
 
-<table mat-table [dataSource]="peliculas">
+<div *ngIf="errorMessage.length>0"  [ngStyle]="{display:'flex', justifyContent:'center', alignItems:'center'}">
+    <h1 [ngStyle]="{textAlign:'center'}">
+         <div>
+            <mat-icon class="icon-display">error</mat-icon>
+         </div>
+         {{errorMessage}} 
+    </h1>
+</div>
 
-    <ng-container matColumnDef="acciones">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let pelicula"> 
-            <button mat-mini-fab (click)="deletePelicula(pelicula.id)">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </td>
-    </ng-container>
 
-    <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let pelicula"> {{pelicula.nombre}} </td>
-    </ng-container>
+<div *ngIf="!loading && (errorMessage.length==0)">
+    <div *ngIf="peliculas.length == 0">
+        <!-- Temp -->
+        <h1>No se han encontrado películas</h1>
+    </div>
+    <button mat-raised-button color="primary" (click)="deletePelicula(999)">
+        [TEST] Borrar Inexistente
+    </button>
 
-    <ng-container matColumnDef="genero">
-        <th mat-header-cell *matHeaderCellDef> Genero </th>
-        <td mat-cell *matCellDef="let pelicula"> {{pelicula.genero}} </td>       
-    </ng-container>
+    <table mat-table [dataSource]="peliculas">
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let pelicula">
+                <button mat-mini-fab (click)="deletePelicula(pelicula.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['acciones','nombre','genero']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['acciones','nombre','genero']"></tr>
-</table>
+        <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let pelicula"> {{pelicula.nombre}} </td>
+        </ng-container>
 
-<button mat-fab class="boton-flotante" (click)="agregarPelicula()">
-    <h1>+</h1>
-</button>
+        <ng-container matColumnDef="genero">
+            <th mat-header-cell *matHeaderCellDef> Genero </th>
+            <td mat-cell *matCellDef="let pelicula"> {{pelicula.genero}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="fechaLanzamiento">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Lanzamiento </th>
+            <td mat-cell *matCellDef="let pelicula"> {{pelicula.fechaLanzamiento | date:"dd-MM-yyyy"}} </td>
+        </ng-container>
+
+        <!--<ng-container matColumnDef="puntuacion">
+            <th mat-header-cell *matHeaderCellDef> Puntuacion </th>
+            <td mat-cell *matCellDef="let pelicula"> {{pelicula.puntuacion}} </td>
+        </ng-container>-->
+
+        <ng-container matColumnDef="puntuacion">
+            <th mat-header-cell *matHeaderCellDef> Puntuacion </th>
+            <td mat-cell *matCellDef="let pelicula">
+                @for (item of numberAsRange(pelicula.puntuacion); track $index) {
+                    <mat-icon style="color: yellow; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">star</mat-icon>
+                }
+            </td>
+        </ng-container> 
+
+        <tr mat-header-row *matHeaderRowDef="['acciones','nombre','genero', 'fechaLanzamiento', 'puntuacion']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['acciones','nombre','genero', 'fechaLanzamiento', 'puntuacion']"></tr>
+    </table>
+
+    <button mat-fab class="boton-flotante" (click)="agregarPelicula()">
+        <h1>+</h1>
+    </button>
+</div>

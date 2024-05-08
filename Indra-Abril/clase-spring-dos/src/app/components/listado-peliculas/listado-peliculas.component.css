@@ -3,3 +3,17 @@
     bottom: 40px;
     right: 40px;
 }
+
+.icon-display {
+    transform: scale(1); /* Estado inicial */
+    animation: scaleUp 0.8s ease-out forwards; 
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(2);
+    }
+}

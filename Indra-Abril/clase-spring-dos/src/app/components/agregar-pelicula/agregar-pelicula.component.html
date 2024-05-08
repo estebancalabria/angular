@@ -1,16 +1,39 @@
-<h1>Formulario Pelicula</h1>
 
-<form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput [formControlName]="campos.nombre" placeholder="Nombre de la pelicula">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Genero</mat-label>
-        <input matInput [formControlName]="campos.genero" placeholder="Genero de la pelicula">
-    </mat-form-field>
-</form>
-<button mat-raised-button (click)="cancelar()">Cancelar</button>
-<button mat-raised-button (click)="agregarPelicula()">Agregar</button>
 
-{{form.value | json}}
+<mat-card [ngStyle]="{marginInline:'10%', marginTop:'2em'}">
+    <mat-card-header>
+        <mat-card-title><h4>Formulario Pelicula</h4></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="form">
+            <mat-form-field [ngStyle]="{display:'block'}">
+                <mat-label>Nombre</mat-label>
+                <input matInput [formControlName]="campos.nombre" placeholder="Nombre de la pelicula">
+            </mat-form-field>
+            <mat-form-field [ngStyle]="{display:'block'}">
+                <mat-label>Genero</mat-label>
+                <input matInput [formControlName]="campos.genero" placeholder="Genero de la pelicula">
+            </mat-form-field>
+            <mat-form-field [ngStyle]="{display:'block'}">
+                <mat-label>Fecha de Lanzamiento</mat-label>
+                <input matInput [formControlName]="campos.fechaLanzamiento" placeholder="Elige una fecha" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field [ngStyle]="{display:'block'}">
+                <mat-label>Puntuacion</mat-label>
+                <input type="number" matInput [formControlName]="campos.puntuacion" placeholder="Puntuacion de la pelicula">
+            </mat-form-field>
+            <div *ngIf="errores.length>0" [ngStyle]="{color:'red'}">
+                Errores:
+                <ul>
+                    <li *ngFor="let error of errores">{{error}}</li>    
+                </ul>                
+            </div>
+            <div [ngStyle]="{textAlign : 'end'}">
+                <button mat-button color="warn" (click)="cancelar()">Cancelar</button>
+                <button mat-raised-button color="primary" (click)="agregarPelicula()">Agregar</button>            
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
