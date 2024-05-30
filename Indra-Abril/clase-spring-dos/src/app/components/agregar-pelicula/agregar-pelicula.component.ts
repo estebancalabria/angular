@@ -39,6 +39,10 @@ export class AgregarPeliculaComponent {
     private snackBar: MatSnackBar
   ) {
 
+    //Una expresion regular que me idique si un string comienza con mayuscula y luego todo en minuscula. Puede haber espacios y luego si empieza una palabra nueva tambien va con mayuscula
+    //let reg = /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/;
+    //let reg = /^[A-Z][a-z]*$/; 
+
     this.form = this.fb.group({
       nombre: "",
       genero: "",

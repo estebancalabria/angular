@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<!-- <app-lista-alumnos titulo="Lista de Alumnos"></app-lista-alumnos> -->
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline"></span>
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="nav-link align-middle px-0 text-dark">
+                            <i class="fs-4 fa fa-home"></i> <span class="ms-1 d-none d-sm-inline">Incio</span>
+                        </a>
+                    </li>       
+                    <li>
+                        <a [routerLink]="['/calc']" class="nav-link px-0 align-middle text-dark">
+                            <i class="fs-4 fa fa-calculator"></i> <span class="ms-1 d-none d-sm-inline ">Calculadora</span></a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/task']" class="nav-link px-0 align-middle text-dark">
+                            <i class="fs-4 fa fa-tasks"></i> <span class="ms-1 d-none d-sm-inline">Tareas</span> </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/book']" class="nav-link px-0 align-middle text-dark">
+                            <i class="fs-4 fa fa-book"></i> <span class="ms-1 d-none d-sm-inline">Libro</span> </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/musicList']" class="nav-link px-0 align-middle text-dark">
+                            <i class="fs-4 fa fa-music"></i> <span class="ms-1 d-none d-sm-inline">Canciones</span> </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/musicForm']"  class="nav-link px-0 align-middle text-dark">
+                            <i class="fs-4 fa fa-play"></i> <span class="ms-1 d-none d-sm-inline">Registrar Canciones</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3">
+		
+            <router-outlet></router-outlet>
+			
+        </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+  
