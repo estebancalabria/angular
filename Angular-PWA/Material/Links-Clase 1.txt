@@ -1,0 +1,28 @@
+# Links Angular
+
+* Documentacion Oficial Angular : https://docs.angular.lat/docs
+* En Ingles : https://angular.dev/tutorials/learn-angular
+* Google Docs de Repos Github Alumnos : https://docs.google.com/spreadsheets/d/10ca4VJi-KwVlSXCONkZkI3W3NvtlOA9QVlBNolQFKko/edit?usp=sharing
+* Guia del Docente : https://docs.google.com/document/d/1YnH1dSvDj3_b2ioSvmaYjT1kGeKT97vsU7oOlfcAGz4/edit?usp=sharing
+* Tutorial Angular Mindu en Youtube : https://www.youtube.com/watch?v=f7unUpshmpA&t=4188s
+* Tutorial Version 8 : https://www.tutorialspoint.com/angular8/index.htm
+* ChatGPT :) : https://chatgpt.com
+
+#Temas a usar
+Para trabajar con forms : https://angular.dev/guide/forms/reactive-forms
+Angular Routing : https://angular.dev/guide/routing/common-router-tasks
+
+#JWT
+https://www.youtube.com/watch?v=5iK8bFU2Rc8
+
+#Links PWA
+* AirHorner: https://airhorner.com/
+* Service Workers : https://serviceworkies.com/
+
+# Contacto
+Wsap : +5491139140236
+Mail Personal : mct.esteban.calabria@gmail.com
+Mail Institucional : ecalabria@itformacion.com  (x campus)
+IG: https://www.instagram.com/mct.esteban.calabria/
+Link Grupo Wsap: https://chat.whatsapp.com/JqJ6MZ9KQrtJLeuDWYINbE
+
