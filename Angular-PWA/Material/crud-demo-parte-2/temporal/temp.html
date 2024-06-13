@@ -1,0 +1,12 @@
+<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input id="nombre" formControlName="nombre">
+      <div *ngIf="contactoForm.get('nombre')?.invalid && (contactoForm.get('nombre')?.dirty || contactoForm.get('nombre')?.touched)">
+        <div *ngIf="contactoForm.get('nombre')?.errors?.required">El nombre es requerido.</div>
+        <div *ngIf="contactoForm.get('nombre')?.errors?.minlength">El nombre debe tener al menos 3 caracteres.</div>
+      </div>
+    </div>
+    <button type="submit" [disabled]="contactoForm.invalid">Agregar Contacto</button>
+  </form>
+  

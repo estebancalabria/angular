@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { ContactoService } from '../../services/contacto.service';
 import { ContactoModel } from '../../models/contacto.model';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-listado-contactos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './listado-contactos.component.html',
   styleUrl: './listado-contactos.component.css'
 })

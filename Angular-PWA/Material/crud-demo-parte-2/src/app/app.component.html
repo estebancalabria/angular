@@ -1,2 +1,12 @@
-<h1>Listado de contactos</h1>
-<app-listado-contactos></app-listado-contactos>
+<h1>{{title}}</h1>
+
+<a routerLink="contactos/nuevo">
+    Agregar Contacto Nuevo
+</a>
+
+<router-outlet></router-outlet>
+
+<!--
+    Remplazamos por el Router Outlet para que se muestre el componente que corresponde segun la url
+    <app-listado-contactos></app-listado-contactos>
+-->

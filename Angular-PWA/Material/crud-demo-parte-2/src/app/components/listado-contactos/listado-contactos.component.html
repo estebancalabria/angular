@@ -7,6 +7,7 @@
           <th>Nombre de Usuario</th>
           <th>Email</th>
           <th>Fecha de Nacimiento</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +16,7 @@
           <td>{{ contacto.nombreUsuario }}</td>
           <td>{{ contacto.email }}</td>
           <td>{{ contacto.fechaDeNacimiento | date }}</td>
+          <td><a [routerLink]="'contacts/editar/' + contacto.id">Editar</a></td>
         </tr>
       </tbody>
     </table>
