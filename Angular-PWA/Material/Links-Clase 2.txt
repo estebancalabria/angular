@@ -1,0 +1,7 @@
+Links Clase 2
+
+* Dev Docs (Gracias Ander!)
+> https://devdocs.io/
+
+* Angular Routing dos
+> https://angular.dev/guide/routing/common-router-tasks
