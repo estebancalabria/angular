@@ -1,0 +1,5 @@
+
+/* Estilo para campos inválidos */
+input.ng-invalid {
+  border: 1px solid red; /* Borde rojo */
+}
