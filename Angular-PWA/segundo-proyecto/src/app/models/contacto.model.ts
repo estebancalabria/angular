@@ -2,6 +2,7 @@ import { GeneroModel } from "./genero.models";
 
 export interface ContactoModel {
     id: number;
+    documento : number;
     nombre: string;
     //apellido: string;
     //telefono: string;
