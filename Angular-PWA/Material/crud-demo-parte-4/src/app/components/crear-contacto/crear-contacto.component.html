@@ -1,0 +1,54 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Documento -->
+    <div>
+      <label for="documento">Documento</label>
+      <input id="documento" type="number" formControlName="documento" />
+      <div *ngIf="form.get('documento').invalid && form.get('documento').touched">
+        <small *ngIf="form.get('documento').hasError('required')">Documento es requerido.</small>
+        <small *ngIf="form.get('documento').hasError('min')">Debe ser mayor que 0.</small>
+      </div>
+    </div>
+  
+    <!-- Nombre de Usuario -->
+    <div>
+      <label for="nombreUsuario">Nombre de Usuario</label>
+      <input id="nombreUsuario" type="text" formControlName="nombreUsuario" />
+      <div *ngIf="form.get('nombreUsuario').invalid && form.get('nombreUsuario').touched">
+        <small *ngIf="form.get('nombreUsuario').hasError('required')">Nombre de usuario es requerido.</small>
+        <small *ngIf="form.get('nombreUsuario').hasError('minlength')">Mínimo 3 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Contraseña -->
+    <div>
+      <label for="password">Contraseña</label>
+      <input id="password" type="password" formControlName="password" />
+      <div *ngIf="form.get('password').invalid && form.get('password').touched">
+        <small *ngIf="form.get('password').hasError('required')">Contraseña es requerida.</small>
+        <small *ngIf="form.get('password').hasError('minlength')">Mínimo 6 caracteres.</small>
+      </div>
+    </div>
+  
+    <!-- Email -->
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" />
+      <div *ngIf="form.get('email').invalid && form.get('email').touched">
+        <small *ngIf="form.get('email').hasError('required')">Email es requerido.</small>
+        <small *ngIf="form.get('email').hasError('email')">Email no es válido.</small>
+      </div>
+    </div>
+  
+    <!-- Fecha de Nacimiento -->
+    <div>
+      <label for="fechaDeNacimiento">Fecha de Nacimiento</label>
+      <input id="fechaDeNacimiento" type="date" formControlName="fechaDeNacimiento" />
+      <div *ngIf="form.get('fechaDeNacimiento').invalid && form.get('fechaDeNacimiento').touched">
+        <small *ngIf="form.get('fechaDeNacimiento').hasError('required')">Fecha de nacimiento es requerida.</small>
+      </div>
+    </div>
+  
+    <!-- Botón de Enviar -->
+    <button type="submit" [disabled]="form.invalid">Enviar</button>
+</form>
+<button (click)="volver()">Volver</button>
