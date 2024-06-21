@@ -20,7 +20,9 @@
                     <a [routerLink]=" 'editar/' + contacto.id" class="btn btn-primary me-2">
                         Editar
                     </a>
-                    <button class="btn btn-danger" >Eliminar</button>
+                    <button class="btn btn-danger" (click)="eliminar(contacto.id)" >
+                        Eliminar
+                    </button>
                 </td>
             </tr>
         </tbody>
