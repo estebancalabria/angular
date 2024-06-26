@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #onlineStatus {
+            text-align: end;
+        }
+    </style>
+
+    <script>
+        function updateOnlineStatus() {
+            document.getElementById('onlineStatus').innerHTML = navigator.onLine ? "online" : "offline";
+            document.getElementById('onlineStatus').style.color = navigator.onLine ? 'green' : 'red';
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        window.addEventListener("load", updateOnlineStatus);
+    </script>
+</head>
+<body>
+    <h1 id="onlineStatus">
+        
+    </h1>
+
+
+    <h2>Local Storage y Session Storage </h2>
+    <hr />
+    
+    <h3>Local Storage</h3>
+    <div>
+        <button id="btnGuardarLS">Guardar en Local Storage</button> 
+        <input  id="txtGuardarLS" type="text" />
+        <script>
+            document.getElementById('btnGuardarLS').addEventListener('click', function(){
+                var txt = document.getElementById('txtGuardarLS').value;
+                localStorage.setItem('demo', txt);
+            });
+        </script>
+    </div>
+    <div>
+        <button id="btnLeerLS">Leer del Local Storage</button> 
+        <input id="txtLeerLS" type="text" />
+        <script>
+            document.getElementById('btnLeerLS').addEventListener('click', function(){
+                if (localStorage.getItem('demo')) {
+                    var txt = localStorage.getItem('demo');
+                    document.getElementById('txtLeerLS').value = txt;
+                }
+            });
+        </script>
+    </div>
+
+    <hr />
+
+    <h3>Session Storage</h3>
+    <div>
+        <button id="btnGuardarSS">Guardar en Session Storage</button> 
+        <input  id="txtGuardarSS" type="text" />
+        <script>
+            document.getElementById('btnGuardarSS').addEventListener('click', function(){
+                var txt = document.getElementById('txtGuardarSS').value;
+                sessionStorage.setItem('demo', txt);
+            });
+        </script>
+    </div>
+    <div>
+        <button id="btnLeerSS">Leer del Session Storage</button> 
+        <input id="txtLeerSS" type="text" />
+        <script>
+            document.getElementById('btnLeerSS').addEventListener('click', function(){
+                if (sessionStorage.getItem('demo')) {
+                    var txt = sessionStorage.getItem('demo');
+                    document.getElementById('txtLeerSS').value = txt;
+                }
+            });
+        </script>
+    </div>
+
+</body>
+</html>

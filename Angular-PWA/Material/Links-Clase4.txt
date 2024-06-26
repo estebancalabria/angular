@@ -1,0 +1,10 @@
+Links Clase 4
+
+* Juego Service Workers
+> https://serviceworkies.com/
+
+* Documentacion Angular
+> https://docs.angular.lat/guide/service-worker-config
+
+* Service Worker Caching Stragegis
+> https://serviceworke.rs/caching-strategies.html

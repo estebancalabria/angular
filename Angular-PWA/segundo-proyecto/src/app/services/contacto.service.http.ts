@@ -24,9 +24,10 @@ export class ContactoServiceHttp extends ContactoServiceInterface {
     override eliminar(id: number): Observable<any> {
         return this.http.delete(`${this.url}/${id}`);
     }
+    
 
     override modificar(nuevo: ContactoModel): Observable<any> {
-        throw new Error("Method not implemented.");
+        return this.http.put<ContactoModel>(this.url, nuevo);
     }
 
 }

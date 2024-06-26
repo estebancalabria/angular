@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ContactoService } from '../../services/contacto.service';
 
 @Component({
   selector: 'app-crear-contacto',
@@ -14,7 +15,8 @@ export class CrearContactoComponent {
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private service : ContactoService) { 
 
     this.form = this.fb.group({
       id: [null], // Campo opcional
