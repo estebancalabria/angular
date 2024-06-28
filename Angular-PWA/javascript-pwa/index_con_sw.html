@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #onlineStatus {
+            text-align: end;
+        }
+    </style>
+
+    <script>
+        function updateOnlineStatus() {
+            document.getElementById('onlineStatus').innerHTML = navigator.onLine ? "online" : "offline";
+            document.getElementById('onlineStatus').style.color = navigator.onLine ? 'green' : 'red';
+        }
+
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        window.addEventListener("load", updateOnlineStatus);
+    </script>
+    <script>
+        /*if (navigator.serviceWorker){
+            navigator.serviceWorker.register('sw.js')
+            .then(reg => {
+                console.log('Service Worker registrado');
+            })
+            .catch(err => {
+                console.error('Error al registrar el Service Worker', err);
+            });
+        }*/
+
+        //IIFE : Inmediatly Invoked Function Expression
+        //Son funciones que se ejecutan inmediatamente despues de ser definidas
+        (async function () {
+            if (navigator.serviceWorker) {
+                try {
+                    await navigator.serviceWorker.register('sw.js')
+                    //Es como si fuera un then Es como si estuviera en el then
+                } catch (err) {
+                    console.error('Error al registrar el Service Worker', err);
+                }
+            }
+        })();
+
+    </script>
+</head>
+
+<body>
+    <h1 id="onlineStatus">
+        
+    </h1>
+    <h1>Bienvenidos al emocionante mundo de los Service Workers</h1>
+    <button>
+        Recuperar datos
+    </button>
+    <ul>
+
+    </ul>
+
+    <script>
+       /* document.querySelector('button').addEventListener('click', () => {
+            fetch('./api/datos2.json')
+                .then(res => res.json())
+                .then(data => {
+                    //console.log(data);
+                    const ul = document.querySelector('ul');
+                    ul.innerHTML = '';
+                    data.personas.forEach(p => {
+                        const li = document.createElement('li');
+                        li.textContent = ` ${p.nombre} ${p.apellido} ${p.edad}`;
+                        ul.appendChild(li);
+                    });
+                })
+                .catch(err => {
+                    const ul = document.querySelector('ul');
+                    ul.innerHTML = "<li>Error al recuperar los datos</li>";
+                });
+        });*/
+
+        document.querySelector('button').addEventListener('click', async () => {
+            try{
+                const res = await fetch('./api/datos.json');
+                const data = await res.json();
+                const ul = document.querySelector('ul');
+                ul.innerHTML = '';
+                data.personas.forEach(p => {
+                    const li = document.createElement('li');
+                    li.textContent = ` ${p.nombre} ${p.apellido} ${p.edad}`;
+                    ul.appendChild(li);
+                });
+            }catch(err){
+                const ul = document.querySelector('ul');
+                ul.innerHTML = "<li>Error al recuperar los datos</li>";
+            }
+        });
+    </script>
+</body>
+
+</html>
