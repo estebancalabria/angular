@@ -1,0 +1,18 @@
+{
+  "contactos": [
+    {
+      "id": "1",
+      "documento": 12345678,
+      "nombre":"Juan Pérez",
+      "fechaNacimiento": "1985-10-15T00:00:00.000Z",
+      "genero": "Masculino"
+    },
+    {
+      "id": "2",
+      "documento": 23456789,
+      "nombre": "María García",
+      "fechaNacimiento": "1990-05-25T00:00:00.000Z",
+      "genero": "Femenino"
+    }
+  ]
+}
