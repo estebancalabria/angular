@@ -1,0 +1,57 @@
+<h3 class="alert alert-info">Formulario Agregar</h3>
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div class="form-group">
+    <label for="txtNombre">Nombre</label>
+    <input type="text" id="txtNombre" class="form-control" [formControlName]="campos.nombre">
+    <div class="text-danger text-end" *ngIf="form.get(campos.nombre)?.invalid && !form.get(campos.nombre)?.pristine">
+      <div *ngIf="form.get('nombre')?.hasError('required')">
+        El campo nombre es requerido
+      </div>
+      <div *ngIf="form.get('nombre')?.hasError('minlength')">
+        El campo es demasiado corto
+      </div>
+      <div *ngIf="form.get('nombre')?.hasError('maxlength')">
+        El campo es demasiado largo
+      </div>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="txtDocumento">Documento</label>
+    <input type="number" id="txtDocumento" class="form-control" [formControlName]="campos.documento">
+  </div>
+
+  <div class="form-group">
+    <label for="txtFechaDeNacimiento">Fecha De Nacimiento</label>
+    <input type="date" id="txtFechaDeNacimiento" class="form-control" formControlName="fechaNacimiento">
+  </div>
+
+  <div class="form-group">
+    <label for="cmbGenero">Genero</label>
+    <select id="cmbGenero" class="form-select" [formControlName]="campos.genero">
+      <option value="Masculino">Masculino</option>
+      <option value="Femenino">Femenino</option>
+      <option value="NoBinario">No Binario</option>
+      <option value="Otro">Otro</option>
+      <option value="PrefieroNoDecirlo">Prefiero no decirlo</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-2">Agregar Contacto</button>
+</form>
+
+<div class="alert alert-success">
+  <b>Debug</b>
+  <hr />
+  {{ form.value | json }}
+  <hr />
+  {{ form.get("nombre")?.errors| json }}
+`  <div>
+    <button (click)="cambiarDatos()">
+      Cambiar Datos
+    </button>
+  </div>
+</div>
+
+<a class="btn btn-primary me-2 mt-2" routerLink="">Volver al listado con RoterLink</a>
