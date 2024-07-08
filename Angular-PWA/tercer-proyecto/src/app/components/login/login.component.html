@@ -1,0 +1,27 @@
+<!-- src/app/login/login.component.html -->
+<div class="login-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email">
+        <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+          <small *ngIf="loginForm.get('email')?.errors?.['required']">Email es requerido.</small>
+          <small *ngIf="loginForm.get('email')?.errors?.['email']">Email no es válido.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="password">Contraseña:</label>
+        <input id="password" type="password" formControlName="password">
+        <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+          <small *ngIf="loginForm.get('password')?.errors?.['required']">Contraseña es requerida.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <div>
+        {{mensajeLogin}}
+    </div>
+  </div>
+  

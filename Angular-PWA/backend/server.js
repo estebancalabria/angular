@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
+const PASSWORD_JWT = 'passwordjwt';
 const PORT = process.env.PORT || 3000;
 const BASE_URL = "/contactos";
 
@@ -45,6 +47,22 @@ app.get(BASE_URL, (req, res) => {
     console.log(contactos);
     res.json(contactos);
 });
+
+app.post(`/login` , (req, res) => {
+    console.log('POST /login');
+    const {email, password} = req.body;
+    if (!email || !password){
+        return res.status(400).json({error: 'El email y la contraseña son requeridos'});
+    }
+
+    //Chequear en la base
+    if (email=="root@gmail.com" && password=="root"){
+        const token = jwt.sign({email}, PASSWORD_JWT);
+        return res.json({token});
+    }
+
+});
+
 
 app.post(BASE_URL, (req, res) => {
     console.log('POST /contactos');
