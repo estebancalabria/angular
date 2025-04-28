@@ -1,0 +1,134 @@
+# 🛠️ Lab PWA Sencilla en Angular - Contador con Funcionamiento Offline
+
+En este laboratorio, vas a construir una aplicación Angular simple de un contador, convertirla en una PWA, y probar que funcione correctamente offline utilizando el **Service Worker** de Angular.
+
+---
+
+## 🎯 Objetivos
+
+- Crear una aplicación Angular con un contador.
+- Convertir la aplicación en una PWA.
+- Configurar y probar el funcionamiento offline con Service Worker.
+- Utilizar **Chrome DevTools** para verificar el funcionamiento offline.
+
+---
+
+## 🧪 Pasos
+
+### 1. Crear una nueva aplicación Angular
+
+Primero, creamos una aplicación Angular básica.
+
+```bash
+ng new angular-pwa-contador --routing=false --style=css
+cd angular-pwa-contador
+```
+
+> ⚡ Si te pregunta por `strict mode`, seleccioná `Yes`.
+
+---
+
+### 2. Instalar soporte para PWA
+
+Añadimos el soporte para PWA en Angular.
+
+```bash
+ng add @angular/pwa
+```
+
+Este comando hace lo siguiente:
+- Modifica `angular.json` para agregar el soporte de Service Worker.
+- Crea el archivo `ngsw-config.json` para configurar el Service Worker.
+- Añade el archivo `manifest.webmanifest` con los íconos necesarios.
+
+---
+
+### 3. Crear la lógica del contador
+
+Abre `src/app/app.component.html` y cambia su contenido a:
+
+```html
+<div class="app-container">
+  <h1>Contador PWA</h1>
+  <button (click)="increment()">Incrementar</button>
+  <p>Contador: {{ counter }}</p>
+</div>
+```
+
+En `src/app/app.component.ts`, agrega la lógica del contador:
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  counter = 0;
+
+  increment() {
+    this.counter++;
+  }
+}
+```
+
+---
+
+### 4. Construir la aplicación en modo producción
+
+Para activar el Service Worker y la funcionalidad offline, la aplicación debe estar en modo producción.
+
+```bash
+ng build --prod
+```
+
+---
+
+### 5. Servir la aplicación de manera segura
+
+Ahora, necesitamos un servidor para servir los archivos de producción. Para ello, usa `http-server`:
+
+```bash
+npm install -g http-server
+cd dist/angular-pwa-contador
+http-server -p 8080
+```
+
+Ahora, abre la aplicación en [http://localhost:8080](http://localhost:8080).
+
+---
+
+### 6. Probar el funcionamiento offline con Chrome DevTools
+
+#### 6.1. Abrir DevTools
+
+Presiona `Ctrl+Shift+I` (o `Cmd+Opt+I` en macOS) para abrir las **DevTools** de Chrome.
+
+#### 6.2. Verificar el Service Worker
+
+1. En DevTools, ve a la pestaña **Application**.
+2. En el panel izquierdo, selecciona **Service Workers**.
+3. Asegúrate de que el **Service Worker** esté **activo**. Debería aparecer como **"Activated"**.
+
+#### 6.3. Habilitar el modo offline
+
+1. En la misma pestaña **Application**, selecciona la sección **Network**.
+2. Marca la casilla **Offline**.
+3. Recarga la página (presionando `Ctrl+R` o `Cmd+R`).
+
+#### 6.4. Verificar el funcionamiento offline
+
+Asegúrate de que la aplicación siga funcionando y que el contador continúe disponible, incluso estando en modo offline.
+
+1. Haz clic en **Incrementar** varias veces.
+2. Cambia a modo offline en DevTools y asegúrate de que el contador no se reinicie o pierda los valores.
+
+---
+
+## 📄 Entregable
+
+- Captura de pantalla mostrando el **Service Worker** activo en DevTools.
+- Captura de pantalla de la app en modo **offline**, con el contador incrementando correctamente.
+

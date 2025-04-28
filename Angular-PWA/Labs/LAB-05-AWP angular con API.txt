@@ -1,0 +1,154 @@
+
+# Laboratorio Crear una PWA en Angular que consuma una API y maneje el caché cuando esté offline
+
+## Objetivos:
+- Crear una **PWA** sencilla en Angular que consulte una API.
+- Implementar un **Service Worker** que permita que la aplicación funcione offline y recupere los datos del caché si no hay conexión.
+- Probar el funcionamiento offline usando las herramientas de desarrollo de Chrome (Chrome DevTools).
+
+## Pasos:
+
+### 1. Crear una nueva aplicación Angular
+
+```bash
+ng new pwa-api-offline --service-worker
+cd pwa-api-offline
+```
+
+- La opción `--service-worker` crea la configuración básica para PWA en Angular.
+
+### 2. Instalar Angular PWA y configurar el Service Worker
+
+Angular ya tiene configurado el Service Worker al crear el proyecto con `--service-worker`, pero asegurémonos de que está activado.
+
+- Abre el archivo `angular.json` y verifica que el proyecto tiene configurado el `ngsw-config.json` en el archivo de producción y en la build.
+
+### 3. Configurar el `ngsw-config.json` para manejar el caché
+
+Edita el archivo `src/ngsw-config.json` para incluir la configuración del caché de la API. Asegúrate de agregar el caché para la URL de la API:
+
+```json
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/**/*.{html,css,js}"
+        ]
+      }
+    },
+    {
+      "name": "api",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "urls": [
+          "https://jsonplaceholder.typicode.com/posts"
+        ]
+      }
+    }
+  ]
+}
+```
+
+- Este archivo asegura que el Service Worker almacene las respuestas de la API `https://jsonplaceholder.typicode.com/posts` en el caché.
+
+### 4. Crear el componente que consuma la API
+
+Edita el archivo `src/app/app.component.ts` para que el componente realice una solicitud a la API y muestre los datos, además de indicar si los datos fueron recuperados del caché o la API.
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent implements OnInit {
+  data: any[] = [];
+  label: string = '';
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.fetchData();
+  }
+
+  fetchData(): void {
+    const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
+    
+    // Realiza la consulta a la API
+    this.http.get<any[]>(apiUrl).subscribe(
+      (data) => {
+        this.data = data;
+        this.label = 'Datos obtenidos de la API';
+      },
+      (error) => {
+        this.label = 'Error al obtener datos desde la API. Se sirven desde el caché.';
+        // El Service Worker manejará automáticamente la carga desde el caché si estamos offline
+      }
+    );
+  }
+}
+```
+
+- Este código hace una solicitud a la API cuando la aplicación se inicia. Si la API está disponible, los datos se mostrarán con la etiqueta "Datos obtenidos de la API". Si la aplicación está offline, se indicará que los datos provienen del caché.
+
+### 5. Modificar el archivo `app.component.html`
+
+Asegúrate de que el archivo `src/app/app.component.html` tenga el siguiente contenido para mostrar los datos:
+
+```html
+<div>
+  <h1>Lista de Posts</h1>
+  <p>{{ label }}</p>
+  <ul>
+    <li *ngFor="let post of data">
+      {{ post.title }}
+    </li>
+  </ul>
+</div>
+```
+
+### 6. Verificación del funcionamiento offline
+
+Ahora que ya tenemos la aplicación configurada, vamos a probarla.
+
+#### Paso 1: Build para producción
+
+Primero, haz un build de producción:
+
+```bash
+ng build --prod
+```
+
+Esto generará los archivos optimizados en la carpeta `dist/`.
+
+#### Paso 2: Servir la aplicación con un servidor estático
+
+Para probar la aplicación como PWA, debes servirla usando un servidor estático. Usa `http-server` para esto:
+
+```bash
+npm install -g http-server
+http-server -p 8080 -c-1 ./dist/pwa-api-offline
+```
+
+#### Paso 3: Probar en Chrome DevTools
+
+1. Abre la aplicación en tu navegador: `http://localhost:8080`.
+2. Abre las herramientas de desarrollo de Chrome (DevTools) presionando `Ctrl+Shift+I` (o `Cmd+Opt+I` en Mac).
+3. Ve a la pestaña **Application**.
+4. En el panel izquierdo, selecciona **Service Workers** y asegúrate de que el Service Worker esté activo.
+5. Ve a la pestaña **Network** y activa la opción **Offline**.
+6. Actualiza la página y verifica que la aplicación cargue los datos desde el caché (en la etiqueta debería decir "Error al obtener datos desde la API. Se sirven desde el caché.").
+
+### 7. Conclusión
+
+Con esta configuración, la aplicación ahora puede funcionar en modo offline gracias al **Service Worker** que almacena en caché las respuestas de la API. Si la aplicación está online, los datos se obtendrán directamente de la API; si está offline, se recuperarán del caché.
+

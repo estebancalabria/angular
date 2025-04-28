@@ -1,0 +1,131 @@
+# 📝 Lab Aplicación Angular - ¡ToDo List!
+
+En este laboratorio vamos a crear una **aplicación Angular simple** para gestionar una lista de tareas (ToDo List). Aprenderás a:
+
+- Crear un proyecto Angular
+- Generar componentes
+- Manejar eventos y bindings
+- Mostrar listas dinámicas
+
+---
+
+## 🛠️ Pasos
+
+### 1. Instalar Angular CLI (si no lo tenés)
+
+```bash
+npm install -g @angular/cli
+```
+
+### 2. Crear un nuevo proyecto Angular
+
+```bash
+ng new todo-app
+cd todo-app
+ng serve
+```
+
+> 🚀 **Tip:** Abrí `http://localhost:4200` en tu navegador para ver la app en vivo.
+
+---
+
+### 3. Generar un componente `todo`
+
+```bash
+ng generate component todo
+```
+
+Esto creará:
+- `src/app/todo/todo.component.ts`
+- `src/app/todo/todo.component.html`
+- etc.
+
+---
+
+### 4. Diseñar el modelo de datos
+
+En `todo.component.ts` agrega:
+
+```typescript
+export class TodoComponent {
+  tasks: string[] = [];
+  newTask: string = '';
+
+  addTask() {
+    if (this.newTask.trim()) {
+      this.tasks.push(this.newTask);
+      this.newTask = '';
+    }
+  }
+
+  removeTask(index: number) {
+    this.tasks.splice(index, 1);
+  }
+}
+```
+
+---
+
+### 5. Crear el template (HTML)
+
+Editá `todo.component.html`:
+
+```html
+<h1>📝 Mi ToDo List</h1>
+
+<input [(ngModel)]="newTask" placeholder="Agregar tarea..." />
+<button (click)="addTask()">Agregar</button>
+
+<ul>
+  <li *ngFor="let task of tasks; let i = index">
+    {{ task }}
+    <button (click)="removeTask(i)">❌</button>
+  </li>
+</ul>
+```
+
+> 💡 **Binding:** Observa cómo usamos `[(ngModel)]` para binding bidireccional y `*ngFor` para iterar.
+
+---
+
+### 6. Importar FormsModule
+
+En `app.module.ts` importá `FormsModule`:
+
+```typescript
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    FormsModule
+  ],
+  ...
+})
+export class AppModule { }
+```
+
+---
+
+### 7. Ejecutar y probar 🚀
+
+```bash
+ng serve
+```
+
+- Probá agregar y eliminar tareas
+- Jugá con el código: ¡agregale estilos!
+
+---
+
+## 🎯 Desafío Extra
+
+- Guarda las tareas en `localStorage` para que no se pierdan al recargar.
+- Agregá un checkbox para marcar tareas completadas.
+
+---
+
+## 📸 Entrega
+
+Subí tu proyecto a GitHub y compartí el link.
+

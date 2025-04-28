@@ -1,0 +1,149 @@
+# 🔥 Lab 3: Primera Aplicación Web Progresiva (PWA) sin Angular
+
+En este laboratorio vamos a crear **una PWA mínima** con **HTML, CSS y JavaScript puro**, que **funciona offline** gracias a un **Service Worker**.
+
+---
+
+## 🛠️ Pasos
+
+### 1. Crear la estructura del proyecto
+
+Armá una carpeta nueva con estos archivos:
+
+```
+/pwa-simple
+  ├── index.html
+  ├── app.js
+  ├── service-worker.js
+  └── manifest.webmanifest
+```
+
+---
+
+### 2. `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi Primera PWA</title>
+  <link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+  <h1>Mi Primera App Web Progresiva</h1>
+  <button id="save">Guardar tarea</button>
+
+  <script src="app.js"></script>
+</body>
+</html>
+```
+
+---
+
+### 3. `app.js`
+
+```javascript
+// Registrar el Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('service-worker.js')
+    .then(reg => console.log('Service Worker registrado.', reg))
+    .catch(err => console.error('Error al registrar el Service Worker.', err));
+}
+
+// Simulamos una acción
+document.getElementById('save').addEventListener('click', () => {
+  alert('Tarea guardada!');
+});
+```
+
+---
+
+### 4. `service-worker.js`
+
+```javascript
+const CACHE_NAME = 'pwa-simple-cache-v1';
+const URLS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/app.js',
+  '/manifest.webmanifest'
+];
+
+// Instalación
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(URLS_TO_CACHE))
+  );
+});
+
+// Activación
+self.addEventListener('activate', event => {
+  console.log('Service Worker activado');
+});
+
+// Fetch: Responder con caché
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+      .then(response => response || fetch(event.request))
+  );
+});
+```
+
+---
+
+### 5. `manifest.webmanifest`
+
+```json
+{
+  "name": "Mi Primera PWA",
+  "short_name": "PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0000ff",
+  "icons": []
+}
+```
+
+*Dejamos los iconos vacíos para simplificar.*
+
+---
+
+### 6. Probar la PWA
+
+1. Levantá un servidor local (no abrir directamente el archivo, tiene que ser con servidor):
+
+```bash
+npm install -g http-server
+http-server -p 8080
+```
+
+2. Entrá en [http://localhost:8080](http://localhost:8080).
+
+3. Abri la pestaña **Application** de Chrome DevTools:
+   - Vas a ver el Service Worker activo.
+   - Vas a ver que podés "instalar" la app.
+
+4. Pone el navegador en **Modo Offline** y recargá:
+   - ¡La app sigue funcionando!
+
+---
+
+### 7. Entregable
+
+- Capturas de:
+  - El Service Worker activo en DevTools.
+  - El sitio funcionando en modo offline.
+  - El manifiesto cargado correctamente.
+
+---
+
+# ✅ ¿Qué aprendimos?
+
+- Cómo una web puede funcionar offline usando Service Workers.
+- Cómo se define un manifiesto para instalar una app en el dispositivo.
+- El flujo básico de una PWA **sin frameworks**.

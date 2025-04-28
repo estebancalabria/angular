@@ -1,0 +1,88 @@
+# 🔍 Lab Explorando una PWA Existente con Chrome DevTools y Lighthouse
+
+En este laboratorio, analizaremos una Aplicación Web Progresiva (PWA) existente para comprender sus características y funcionamiento utilizando las herramientas de desarrollo de Chrome.
+
+---
+
+## 🎯 Objetivos
+
+- Identificar las características clave de una PWA.
+- Utilizar Chrome DevTools para inspeccionar el Service Worker y el almacenamiento en caché.
+- Ejecutar una auditoría de rendimiento y PWA con Lighthouse.
+- Evaluar la capacidad de la aplicación para funcionar offline.
+
+---
+
+## 🧪 Pasos
+
+### 1. Acceder a la PWA
+
+Abrí Google Chrome e ingresá a la siguiente URL:
+
+[https://airhorner.com/](https://airhorner.com/)
+
+Esta es una PWA simple que simula una bocina de aire.
+
+---
+
+### 2. Inspeccionar con Chrome DevTools
+
+1. Hacé clic derecho en cualquier parte de la página y seleccioná "Inspeccionar" o presioná `Ctrl+Shift+I` (`Cmd+Option+I` en macOS) para abrir DevTools.
+2. Navegá a la pestaña **Application**.
+3. En el panel izquierdo, explorá las siguientes secciones:
+   - **Manifest**: Observá el archivo `manifest.webmanifest` y sus propiedades como `name`, `icons`, `start_url`, etc.
+   - **Service Workers**: Verificá si hay un Service Worker registrado y activo.
+   - **Cache Storage**: Explorá las cachés creadas por la aplicación y los recursos almacenados.
+   - **IndexedDB / Local Storage**: Observá si la aplicación utiliza almacenamiento local para guardar datos.
+
+---
+
+### 3. Probar el Funcionamiento Offline
+
+1. En la pestaña **Application**, activá la opción **Offline** en la sección **Service Workers**.
+2. Recargá la página (`F5` o `Ctrl+R`).
+3. Verificá si la aplicación sigue funcionando correctamente sin conexión a internet.
+
+---
+
+### 4. Ejecutar una Auditoría con Lighthouse
+
+> **Nota**: A partir de la segunda mitad de 2025, la pestaña independiente de Lighthouse en DevTools será descontinuada. Sin embargo, Lighthouse seguirá disponible a través de otras interfaces como PageSpeed Insights y la línea de comandos ([developer.chrome.com](https://developer.chrome.com/blog/perf-tooling-2024?utm_source=chatgpt.com)).
+
+1. En DevTools, navegá a la pestaña **Lighthouse**. Si no la ves, hacé clic en el ícono `>>` para encontrarla.
+2. Seleccioná las categorías que deseas auditar, como:
+   - Performance
+   - Progressive Web App
+   - Best Practices
+   - Accessibility
+   - SEO
+3. Hacé clic en **Generate report** para iniciar la auditoría.
+4. Una vez completada, analizá el informe generado, prestando atención a:
+   - Puntajes generales.
+   - Recomendaciones para mejorar el rendimiento y la experiencia offline.
+   - Cumplimiento de los criterios de PWA.
+
+---
+
+### 5. Analizar el Informe de Lighthouse
+
+Revisá las secciones del informe, enfocándote en:
+
+- **Performance**: Tiempo de carga, interactividad y estabilidad visual.
+- **Progressive Web App**: Verificación de requisitos como el uso de HTTPS, presencia de un Service Worker, capacidad de ser instalada, etc.
+- **Best Practices**: Uso de tecnologías web modernas y seguras.
+
+---
+
+## 📄 Entregable
+
+- Capturas de pantalla de:
+  - El archivo `manifest.webmanifest` en la pestaña **Application**.
+  - El Service Worker registrado y activo.
+  - Los recursos almacenados en caché.
+  - La aplicación funcionando en modo offline.
+  - El informe de Lighthouse con los puntajes obtenidos.
+- Un breve análisis (1-2 párrafos) sobre:
+  - Las características de PWA identificadas en la aplicación.
+  - Las recomendaciones proporcionadas por Lighthouse y cómo podrían implementarse.
+

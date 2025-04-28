@@ -1,0 +1,98 @@
+# Laboratorio: Crear una API en Node.js que devuelva un Timestamp
+
+## Objetivos
+- Crear una API en Node.js que devuelva un timestamp en formato JSON.
+- Configurar y probar la estrategia de caché en una PWA de Angular con esta API.
+
+## Requisitos previos
+- Tener instalado **Node.js** en tu máquina.
+- Tener conocimientos básicos de **Node.js** y **Express**.
+- Tener instalado **Postman** o alguna herramienta para hacer peticiones HTTP.
+
+## Pasos para crear la API
+
+### 1. Inicializar el proyecto de Node.js
+
+Primero, crea un nuevo directorio para tu proyecto y navega dentro de él:
+
+```bash
+mkdir node-timestamp-api
+cd node-timestamp-api
+```
+
+Inicializa el proyecto de Node.js:
+
+```bash
+npm init -y
+```
+
+### 2. Instalar dependencias necesarias
+
+Instalamos **Express**, que es un framework minimalista para crear APIs en Node.js:
+
+```bash
+npm install express
+```
+
+### 3. Crear la API
+
+Crea un archivo llamado `app.js` en el directorio principal del proyecto:
+
+```bash
+touch app.js
+```
+
+Abre el archivo `app.js` y agrega el siguiente código:
+
+```js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Ruta que devuelve el timestamp actual
+app.get('/api/timestamp', (req, res) => {
+  const timestamp = { timestamp: Date.now() };
+  res.json(timestamp);
+});
+
+// Inicia el servidor
+app.listen(port, () => {
+  console.log(`API en ejecución en http://localhost:${port}`);
+});
+```
+
+### 4. Ejecutar la API
+
+Ahora, ejecuta el servidor de la API con el siguiente comando:
+
+```bash
+node app.js
+```
+
+Tu servidor debería estar corriendo en **http://localhost:3000**.
+
+### 5. Probar la API
+
+Abre tu navegador o usa herramientas como **Postman** para hacer una solicitud `GET` a la URL:
+
+```
+http://localhost:3000/api/timestamp
+```
+
+La respuesta será un JSON con el timestamp actual:
+
+```json
+{
+  "timestamp": 1614567890123
+}
+```
+
+¡Ya tienes tu API lista!
+
+---
+
+## Conclusión
+
+En este laboratorio, creamos una API en **Node.js** utilizando **Express** que devuelve un timestamp cada vez que se hace una solicitud. Esta API nos ayudará a probar la caché en una PWA con Angular, ya que cada vez que se consulte, el timestamp será diferente.
+
+En el siguiente paso, podemos integrar esta API en una aplicación Angular y aplicar las estrategias de caché de Service Workers como `networkFirst` o `cacheFirst` para ver cómo la PWA maneja el comportamiento offline.
