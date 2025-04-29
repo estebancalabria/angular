@@ -1,0 +1,20 @@
+<div class="bg-dark text-end p-2">
+  <button class="btn btn-primary" (click)="cambiarColor()">Cambiar Color</button>
+</div>
+<h1 [class]="bootstrapTitleClass" class="text-center">
+  {{ titulo |  uppercase | slice:inicio:fin }}  
+</h1>
+<div class="text-end me-2">
+  <strong>  {{ fecha | date:'YYYY-MM-dd' }}  </strong>
+  <!--Variables de Templates-->
+  <button #sutituloFecha class="btn btn-primary" (click)="(sutituloFecha.innerHTML == '🌞') ? sutituloFecha.innerHTML = '🌜' : sutituloFecha.innerHTML = '🌞' ">
+    🌞
+  </button>
+</div>
+
+
+
+
+
+
+<router-outlet></router-outlet>
