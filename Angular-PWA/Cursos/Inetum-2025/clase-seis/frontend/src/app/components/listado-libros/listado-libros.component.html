@@ -1,0 +1,28 @@
+<div *ngIf="libros.length==0"  class=" text-center">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <div>Cargando libros...</div>
+</div>
+
+<table *ngIf="libros.length>0"  class="table table-striped">
+    <caption>Listado de libros</caption>
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let libro of libros">
+            <td>{{ libro.title }}</td>
+            <td>{{ libro.author }}</td>
+            <td class="text-end">
+                <button class="btn btn-danger" (click)="eliminar(libro.id)">
+                    🗑️
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

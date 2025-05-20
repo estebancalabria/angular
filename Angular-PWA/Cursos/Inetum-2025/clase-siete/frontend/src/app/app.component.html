@@ -1,0 +1,20 @@
+<header class="alert alert-primary text-center">
+   <h1>{{ titulo | envolver:'📖' }}</h1>
+</header>
+
+<main class="container">
+  <button class="btn btn-success rounded-circle position-fixed" 
+          [style.width.px]="60"
+          [style.height.px]="60"
+          [style.fontSize.px]="40"
+          [style.bottom.px]="20"
+          [style.right.px]="20"
+          [style]="'display:flex; justify-content:center; align-items: center;'"
+          type="button"
+          (click)="irAgregar()"
+          >
+    +
+  </button>
+
+  <router-outlet></router-outlet>
+</main>

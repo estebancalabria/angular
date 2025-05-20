@@ -1,0 +1,25 @@
+{
+    "libros" : [
+        {
+            "id": 1,
+            "titulo": "El Principito",
+            "autor": "Antoine de Saint-Exupéry",
+            "publicacion": 1943,
+            "genero": "Ficción"
+        },
+        {
+            "id": 2,
+            "titulo": "Cien años de soledad",
+            "autor": "Gabriel García Márquez",
+            "publicacion": 1967,
+            "genero": "Realismo mágico"
+        },
+        {
+            "id": 3,
+            "titulo": "1984",
+            "autor": "George Orwell",
+            "publicacion": 1949,
+            "genero": "Distopía"
+        }
+    ]
+}

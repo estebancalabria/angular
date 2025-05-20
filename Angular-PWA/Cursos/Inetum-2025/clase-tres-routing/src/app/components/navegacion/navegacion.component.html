@@ -1,0 +1,5 @@
+<ul class="nav">
+    <li *ngFor="let opcion of opciones" class="nav-item">
+      <a class="nav-link" [routerLink]="opcion.ruta">{{ opcion.nombre }}</a>
+    </li>
+  </ul>

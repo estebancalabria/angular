@@ -1,0 +1,11 @@
+<h1 [style.textAlign]="centrado" >
+  {{ titulo | uppercase }}
+</h1>
+
+<app-online-status></app-online-status>
+
+<div  [style.textAlign]="centrado" [style.fontSize]="'larger'">
+  <app-contador></app-contador>
+</div>
+
+<app-lista-alumnos [alumnos]='["Manex", "Unai", "Jennifer", "Ander"]'></app-lista-alumnos>

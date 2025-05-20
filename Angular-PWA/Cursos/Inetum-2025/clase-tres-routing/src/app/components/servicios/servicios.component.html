@@ -1,0 +1,19 @@
+<h4>Mis Servicios</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let servicio of listaServicios">
+            <td>{{ servicio.nombre }}</td>
+            <td>{{ servicio.descripcion }}</td>
+            <td><a [routerLink]=" 'servicio/' + servicio.id">Mas Info...</a></td>
+        </tr>
+    </tbody>
+
+</table>

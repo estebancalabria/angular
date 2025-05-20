@@ -1,0 +1,14 @@
+
+<h3>Mi Lista de Alumno (Directiva *ngFor)</h3>
+
+<h4 *ngIf="alumnos.length==0"> No hay alumnos Cargados</h4>
+
+<ul>
+    <!--<li *ngFor="let nombre of alumnos-->
+    <li *ngFor="let nombre of alumnos; let i = index">
+        <button (click)="eliminarAlumno(i)">🗑️</button> {{ nombre }} 
+    </li>
+</ul>
+
+<input #txtNuevoAlumno name="txtNuevoAlumno" type="text" />
+<button (click)="agregarAlumno(txtNuevoAlumno.value); txtNuevoAlumno.value='' ">Agregar Alumno</button>

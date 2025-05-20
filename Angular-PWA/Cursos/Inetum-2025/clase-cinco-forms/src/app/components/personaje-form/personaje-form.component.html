@@ -1,0 +1,55 @@
+<h3>
+    Formulario de Personaje
+</h3>
+
+<form [formGroup]="formulario">
+    <div><label>Nombre : </label></div> 
+    <div>
+        <input type="text" name="nombre" formControlName="nombre"  />
+
+        <div class="error" *ngIf="formulario.get('nombre')?.invalid">
+            <p *ngIf="formulario.get('nombre')?.errors?.['required']">El nombre es requerido</p>
+            <p *ngIf="formulario.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres</p>
+            <p *ngIf="formulario.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 20 caracteres</p>
+            <p *ngIf="formulario.get('nombre')?.errors?.['pattern']">El nombre empieza con Mayuscula y solo puede contener letras</p>
+            <p *ngIf="formulario.get('nombre')?.errors?.['noPedro']">Cualquier nombre menos Pedro por favor</p>
+        </div>
+
+
+        <button (click)="sugerirNombre()">Sugerir Nombre</button>
+    </div>
+
+    <!--Ojo con este, vamos a tener que hacer algo...-->
+    <div><label>Fecha de Naciemiento : </label></div> 
+    <div>
+        <input type="date" name="fechaDeNacimiento" formControlName="fechaDeNacimiento"  />
+    </div>
+
+    <div><label>Pais : </label></div> 
+    <div>
+        <select name="pais" [formControlName]="Campos.pais" >
+            <option value="Argentina">Argentina</option>
+            <option value="Chile">Chile</option>
+            <option value="Uruguay">Uruguay</option>
+            <option value="Japón">Japón</option>
+        </select>
+    </div>
+
+    <div><label>Biografia : </label></div> 
+    <div>
+        <input type="text" name="biografia" formControlName="biografia"  />
+    </div>
+
+    <button (click)="submit()" type="submit">
+        Eviar
+    </button>
+</form>
+
+
+<p> Debug</p>
+<p>Nombre : {{formulario.get('nombre')?.value}}  - Es valido : {{ formulario.get('nombre')?.valid }} </p>
+<p>Fecha de Nacimiento : {{formulario.get('fechaDeNacimiento')?.value}}  </p>
+<p>Pais : {{formulario.get('pais')?.value}}  </p>
+<p>Biografia : {{formulario.get('biografia')?.value}}  </p>
+<p>Formulario : {{formulario.value | json}}</p>
+<p>Formulario Valido: {{formulario.valid}}</p>

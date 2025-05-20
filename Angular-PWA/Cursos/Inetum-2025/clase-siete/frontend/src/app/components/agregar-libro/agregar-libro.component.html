@@ -1,0 +1,45 @@
+<form [formGroup]="formulario">
+    <div class="form-group">
+        <label for="txtTitle">Nombre</label>
+        <input type="text" id="txtTitle" [name]="campos.title" [formControlName]="campos.title" class="form-control"/>
+        <div *ngFor="let error of getErrors(campos.title)">
+            <p class="text-danger">{{error}}</p>
+        </div>
+
+        <!--
+        <div *ngIf="formulario.get(campos.title)?.invalid && formulario.get(campos.title)?.touched">
+             <p class="text-danger" *ngIf="formulario.get(campos.title)?.errors?.['required']">Nombre requerido</p>
+             <p class="text-danger" *ngIf="formulario.get(campos.title)?.errors?.['minlength'] as error">
+                Demasiado corto. Minico {{ error.requiredLength }} caracteres. Actual {{ error.actualLength }} caracteres.    
+            </p>
+        </div>
+        -->
+    </div>
+    <div class="form-group">
+        <label for="txtAuthor">Autor</label>
+        <input type="text" id="txtAuthor" [name]="campos.author" [formControlName]="campos.author"  class="form-control"/>
+        <div *ngFor="let error of getErrors(campos.author)">
+            <p class="text-danger">{{error}}</p>
+        </div>
+
+        <!--
+        <div *ngIf="formulario.get(campos.author) as control">
+            <div *ngIf="control.invalid && control.touched && control.errors as errors">
+                <p class="text-danger" *ngIf="errors?.['required']">Nombre requerido</p>
+                <p class="text-danger" *ngIf="errors?.['minlength']">Demasiado corto</p>
+            </div>
+        </div>
+    -->
+    </div>
+</form>
+
+<button type="button" class="btn btn-primary w-100 mt-2 mb-1" (click)="agregar()">
+    Agregar
+</button>
+
+<button type="button" class="btn btn-danger w-100 mt-2 mb-2" (click)="volver()">
+    volver
+</button>
+
+
+{{ formulario.value | json }}

@@ -1,0 +1,48 @@
+{
+    "name": "Mi Primer Aplicacion PWA",
+    "description": "Mi Primer Aplicacion PWA",
+    "short_name": "FitstPWA",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0d4c73",
+    "orientation":"portrait",
+    "display_override": "minimal-ui",
+    "screenshots": [
+        {
+            "src": "/image/Icon-192-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name":"DemoPWA",
+            "icons": [
+                {
+                    "src": "icon-96x96.png",
+                    "type": "image/png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "protocol_handlers": [
+        {
+            "protocol": "web+example",
+            "url_template": "/example?url=%s"
+        }
+    ],
+    "icons": [
+        {
+            "src": "/image/Icon-192-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/image/Icon-512-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
